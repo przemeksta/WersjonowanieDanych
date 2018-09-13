@@ -11,28 +11,24 @@ namespace WersjonowanieDanych
 {
     public partial class NowyPacjent : System.Web.UI.Page
     {
-        int imieCount = 0;
-        int nazwiskoCount = 0;
+        string imieCountS;
+        string nazwiskoCountS;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["New"] != null)
             {
-                Response.Redirect("LogIN.aspx");
-
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
                 conn.Open();
-                string sprawdzImiona = "select count(*) from UzytkownicyRAN ";
-                //string sprawdzImiona = "select Nazwa, Pozycja  from UzytkownicyRAN ";
-                SqlCommand com = new SqlCommand(sprawdzImiona, conn);
-                //Response.Write(com);
-                //Response.Write(com.BeginExecuteXmlReader());
+                string imieCount = "select count(*) from ViewImiona";
+                string nazwiskoCount = "select count(*) from ViewNazwiska";
 
-                //SqlDataReader myReader = com.ExecuteReader();
-
-                /*   while (myReader.Read())
-                   {
-                       Response.Write(myReader.GetString(0) + " \t" + myReader.GetInt64(1).ToString());
-                   }*/
+                SqlCommand com = new SqlCommand(imieCount, conn);
+                imieCountS = com.ExecuteScalar().ToString();
+                LabelImieCount.Text = imieCountS;
+                SqlCommand com2 = new SqlCommand(nazwiskoCount, conn);
+                nazwiskoCountS = com2.ExecuteScalar().ToString();
+                LabelNazwiskoCount.Text = nazwiskoCountS;
+ 
                 conn.Close();
             }
             else
@@ -41,13 +37,22 @@ namespace WersjonowanieDanych
 
         protected void ButtonDodaniePac_Click(object sender, EventArgs e)
         {
-            string imie;
-            string nazwisko;
-            string pesel;
             System.Random x = new Random();
-            int liczba = x.Next(1, 100);
-            int liczba2 = x.Next(1, 100);
-            int liczba3 = x.Next(1, 100);
+            //LabelImie.Text = (Losowanie(Convert.ToInt32(imieCountS))).ToString();
+            //LabelNazwisko.Text = (Losowanie(Convert.ToInt32(nazwiskoCountS))).ToString();
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
+            conn.Open();
+            string imieCount = "select imie from ViewImiona where pozycja = " + (Losowanie(Convert.ToInt32(imieCountS))).ToString();
+            string nazwiskoCount = "select nazwisko from ViewNazwiska where pozycja = " + (Losowanie(Convert.ToInt32(nazwiskoCountS))).ToString();
+
+            SqlCommand com = new SqlCommand(imieCount, conn);
+            LabelImie.Text = com.ExecuteScalar().ToString();
+            SqlCommand com2 = new SqlCommand(nazwiskoCount, conn);
+            LabelNazwisko.Text = com2.ExecuteScalar().ToString();
+
+
+            conn.Close();
 
             /*
             try
@@ -82,7 +87,22 @@ namespace WersjonowanieDanych
             {
                 Response.Write("error: " + ex.ToString());
             }
-            */
+                           //Response.Write(com);
+                //Response.Write(com.BeginExecuteXmlReader());
+
+                //SqlDataReader myReader = com.ExecuteReader();
+
+                /*   while (myReader.Read())
+                   {
+                       Response.Write(myReader.GetString(0) + " \t" + myReader.GetInt64(1).ToString());
+                   }*/
+        }
+
+        protected int Losowanie( int koniec)
+        {
+            System.Random x = new Random();
+
+            return x.Next(1, koniec);
         }
     }
 }

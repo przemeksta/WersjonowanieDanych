@@ -75,6 +75,49 @@
             height: 23px;
             background-color: #FF66CC;
         }
+        .auto-style21 {
+            width: 156px;
+            height: 21px;
+        }
+        .auto-style22 {
+            width: 145px;
+            background-color: #FFCCFF;
+            height: 21px;
+        }
+        .auto-style23 {
+            width: 146px;
+            background-color: #FFCCFF;
+            height: 21px;
+        }
+        .auto-style24 {
+            width: 129px;
+            color: #FF0066;
+            background-color: #FF66CC;
+            height: 21px;
+        }
+        .auto-style25 {
+            width: 437px;
+            height: 21px;
+        }
+        .auto-style26 {
+            width: 437px;
+            height: 23px;
+            background-color: #FFFFFF;
+        }
+        .auto-style27 {
+            width: 129px;
+            height: 23px;
+            background-color: #FFFFFF;
+        }
+        .auto-style28 {
+            background-color: #FFFFFF;
+            height: 23px;
+        }
+        .auto-style29 {
+            width: 129px;
+            color: #000000;
+            background-color: #FF66CC;
+        }
     </style>
 </head>
 <body>
@@ -85,19 +128,44 @@
                 <td class="auto-style15">
             <asp:HyperLink ID="HyperLinkProgramGL" runat="server" NavigateUrl="~/Menu.aspx">Program główny</asp:HyperLink>
                 </td>
+                <td class="auto-style28" colspan="2">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td class="auto-style26">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style15">
+                    <asp:HyperLink ID="HyperLinkDodanieDokumntu" runat="server" NavigateUrl="~/NowyDokument.aspx">Dodanie dokumntu</asp:HyperLink>
+                </td>
+                <td class="auto-style28" colspan="2">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td class="auto-style26">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style15">
+                    &nbsp;</td>
                 <td class="auto-style8" colspan="2">Dodanie Pacjenta</td>
                 <td class="auto-style16">Count</td>
                 <td class="auto-style17"></td>
             </tr>
             <tr>
-                <td class="auto-style2">
-                    <asp:HyperLink ID="HyperLinkDodanieDokumntu" runat="server" NavigateUrl="~/NowyDokument.aspx">Dodanie dokumntu</asp:HyperLink>
+                <td class="auto-style21">
+                    &nbsp;</td>
+                <td class="auto-style22">Plec</td>
+                <td class="auto-style23">
+                    <asp:Label ID="LabelPlec" runat="server"></asp:Label>
                 </td>
+                <td class="auto-style24">
+                </td>
+                <td class="auto-style25"></td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    &nbsp;</td>
                 <td class="auto-style11">Imię</td>
                 <td class="auto-style12">
                     <asp:Label ID="LabelImie" runat="server"></asp:Label>
                 </td>
-                <td class="auto-style9">
+                <td class="auto-style29">
                     <asp:Label ID="LabelImieCount" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style10">&nbsp;</td>
@@ -108,7 +176,7 @@
                 <td class="auto-style12">
                     <asp:Label ID="LabelNazwisko" runat="server"></asp:Label>
                 </td>
-                <td class="auto-style9">
+                <td class="auto-style29">
                     <asp:Label ID="LabelNazwiskoCount" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style10">&nbsp;</td>
