@@ -171,7 +171,8 @@
             </tr>
             <tr>
                 <td class="auto-style15">
-                    &nbsp;</td>
+                    <asp:HyperLink ID="HyperLinkListaPacv" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
+                </td>
                 <td class="auto-style8">Dodanie Pacjenta</td>
                 <td class="auto-style8">Losowanie</td>
                 <td class="auto-style16">Count</td>

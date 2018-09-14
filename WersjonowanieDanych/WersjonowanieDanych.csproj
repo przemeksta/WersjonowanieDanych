@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ListaPacjentow.aspx" />
     <Content Include="ListaUzytkownikow.aspx" />
     <Content Include="LogIN.aspx" />
     <Content Include="Menu.aspx" />
@@ -76,6 +77,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ListaPacjentow.aspx.cs">
+      <DependentUpon>ListaPacjentow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaPacjentow.aspx.designer.cs">
+      <DependentUpon>ListaPacjentow.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListaUzytkownikow.aspx.cs">
       <DependentUpon>ListaUzytkownikow.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

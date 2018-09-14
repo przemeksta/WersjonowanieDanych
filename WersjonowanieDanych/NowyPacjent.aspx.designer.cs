@@ -40,6 +40,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkDodanieDokumntu;
         
         /// <summary>
+        /// Kontrolka HyperLinkListaPacv.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaPacv;
+        
+        /// <summary>
         /// Kontrolka LabelPlec.
         /// </summary>
         /// <remarks>

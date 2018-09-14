@@ -21,6 +21,7 @@ namespace WersjonowanieDanych
         {
             if (Session["New"] != null)
             {
+                /*
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
                 conn.Open();
                 string imieCount = "select count(*) from ViewImionaK";
@@ -35,7 +36,11 @@ namespace WersjonowanieDanych
                 nazwiskoCountK = com2.ExecuteScalar().ToString();
                 LabelNazwiskoCountK.Text = nazwiskoCountK;
  
-                conn.Close();
+                conn.Close();*/
+                LabelImieCountK.Text = PobierzWartoscSQL("count(*)", "ViewImionaK");
+                LabelImieCountM.Text = PobierzWartoscSQL("count(*)", "ViewImionaM");
+                LabelNazwiskoCountK.Text = PobierzWartoscSQL("count(*)", "ViewNazwiskaK");
+                LabelNazwiskoCountM.Text = PobierzWartoscSQL("count(*)", "ViewNazwiskaM");
             }
             else
                 Response.Redirect("LogIN.aspx");
@@ -117,7 +122,7 @@ namespace WersjonowanieDanych
         protected string PobierzWartoscSQL(string kolumna, string tabela)
         {
             string zapytanie = "select " + kolumna + " from " + tabela;
-            string wynik = "0";
+            string wynik = "error";
             try
             {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
@@ -130,7 +135,6 @@ namespace WersjonowanieDanych
             {
                 Response.Write("error: " + ex.ToString());
             }
-
             return wynik;
         }
     }
