@@ -21,9 +21,9 @@
             height: 23px;
         }
         .auto-style9 {
-            width: 129px;
+            width: 144px;
             color: #FF0066;
-            background-color: #FF66CC;
+            background-color: #FF99FF;
         }
         .auto-style10 {
             width: 437px;
@@ -51,9 +51,9 @@
             height: 23px;
         }
         .auto-style16 {
-            width: 129px;
+            width: 144px;
             height: 23px;
-            background-color: #FF66CC;
+            background-color: #FF99FF;
         }
         .auto-style17 {
             width: 437px;
@@ -70,10 +70,10 @@
             height: 23px;
         }
         .auto-style20 {
-            width: 129px;
+            width: 144px;
             color: #FF0066;
             height: 23px;
-            background-color: #FF66CC;
+            background-color: #FF99FF;
         }
         .auto-style21 {
             width: 156px;
@@ -90,9 +90,9 @@
             height: 21px;
         }
         .auto-style24 {
-            width: 129px;
-            color: #FF0066;
-            background-color: #FF66CC;
+            width: 144px;
+            color: #000000;
+            background-color: #FF99FF;
             height: 21px;
         }
         .auto-style25 {
@@ -105,7 +105,7 @@
             background-color: #FFFFFF;
         }
         .auto-style27 {
-            width: 129px;
+            width: 144px;
             height: 23px;
             background-color: #FFFFFF;
         }
@@ -114,9 +114,36 @@
             height: 23px;
         }
         .auto-style29 {
-            width: 129px;
+            width: 144px;
             color: #000000;
-            background-color: #FF66CC;
+            background-color: #FF99FF;
+        }
+        .auto-style30 {
+            width: 144px;
+            color: #FF0066;
+            background-color: #CC99FF;
+        }
+        .auto-style31 {
+            width: 144px;
+            color: #FF0066;
+            height: 23px;
+            background-color: #CC99FF;
+        }
+        .auto-style32 {
+            width: 144px;
+            color: #000000;
+            background-color: #CC99FF;
+        }
+        .auto-style33 {
+            width: 144px;
+            color: #000000;
+            background-color: #CC99FF;
+            height: 21px;
+        }
+        .auto-style34 {
+            width: 144px;
+            height: 23px;
+            background-color: #CC99FF;
         }
     </style>
 </head>
@@ -130,6 +157,7 @@
                 </td>
                 <td class="auto-style28" colspan="2">&nbsp;</td>
                 <td class="auto-style27">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
                 <td class="auto-style26">&nbsp;</td>
             </tr>
             <tr>
@@ -138,13 +166,16 @@
                 </td>
                 <td class="auto-style28" colspan="2">&nbsp;</td>
                 <td class="auto-style27">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
                 <td class="auto-style26">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style15">
                     &nbsp;</td>
-                <td class="auto-style8" colspan="2">Dodanie Pacjenta</td>
+                <td class="auto-style8">Dodanie Pacjenta</td>
+                <td class="auto-style8">Losowanie</td>
                 <td class="auto-style16">Count</td>
+                <td class="auto-style34">&nbsp;</td>
                 <td class="auto-style17"></td>
             </tr>
             <tr>
@@ -155,7 +186,9 @@
                     <asp:Label ID="LabelPlec" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style24">
-                </td>
+                    K</td>
+                <td class="auto-style33">
+                    M</td>
                 <td class="auto-style25"></td>
             </tr>
             <tr>
@@ -166,7 +199,10 @@
                     <asp:Label ID="LabelImie" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style29">
-                    <asp:Label ID="LabelImieCount" runat="server"></asp:Label>
+                    <asp:Label ID="LabelImieCountK" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style32">
+                    <asp:Label ID="LabelImieCountM" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
@@ -177,17 +213,20 @@
                     <asp:Label ID="LabelNazwisko" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style29">
-                    <asp:Label ID="LabelNazwiskoCount" runat="server"></asp:Label>
+                    <asp:Label ID="LabelNazwiskoCountK" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style32">
+                    <asp:Label ID="LabelNazwiskoCountM" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style15"></td>
-                <td class="auto-style18">Pesel</td>
+                <td class="auto-style18">&nbsp;</td>
                 <td class="auto-style19">
-                    <asp:Label ID="LabelPesel" runat="server"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style20"></td>
+                <td class="auto-style31">&nbsp;</td>
                 <td class="auto-style17"></td>
             </tr>
             <tr>
@@ -195,6 +234,7 @@
                 <td class="auto-style13">&nbsp;</td>
                 <td class="auto-style14">&nbsp;</td>
                 <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
             <tr>
@@ -202,6 +242,7 @@
                 <td class="auto-style13">&nbsp;</td>
                 <td class="auto-style14">&nbsp;</td>
                 <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
             <tr>
@@ -209,6 +250,7 @@
                 <td class="auto-style13">&nbsp;</td>
                 <td class="auto-style14">&nbsp;</td>
                 <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
             <tr>
@@ -218,6 +260,7 @@
                     </strong></td>
                 <td class="auto-style14">&nbsp;</td>
                 <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
         </table>

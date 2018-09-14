@@ -11,23 +11,29 @@ namespace WersjonowanieDanych
 {
     public partial class NowyPacjent : System.Web.UI.Page
     {
-        string imieCountS;
-        string nazwiskoCountS;
+        string plec;
+        string imieCountK;
+        string imieCountM;
+        string nazwiskoCountK;
+        string nazwiskoCountM;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["New"] != null)
             {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
                 conn.Open();
-                string imieCount = "select count(*) from ViewImiona";
-                string nazwiskoCount = "select count(*) from ViewNazwiska";
+                string imieCount = "select count(*) from ViewImionaK";
+                string nazwiskoCount = "select count(*) from ViewNazwiskaK";
+                //string imieCount = "select count(*) from ViewImionaK";
+                //string nazwiskoCount = "select count(*) from ViewNazwiskaK";
 
                 SqlCommand com = new SqlCommand(imieCount, conn);
-                imieCountS = com.ExecuteScalar().ToString();
-                LabelImieCount.Text = imieCountS;
+                imieCountK = com.ExecuteScalar().ToString();
+                LabelImieCountK.Text = imieCountK;
                 SqlCommand com2 = new SqlCommand(nazwiskoCount, conn);
-                nazwiskoCountS = com2.ExecuteScalar().ToString();
-                LabelNazwiskoCount.Text = nazwiskoCountS;
+                nazwiskoCountK = com2.ExecuteScalar().ToString();
+                LabelNazwiskoCountK.Text = nazwiskoCountK;
  
                 conn.Close();
             }
@@ -37,21 +43,25 @@ namespace WersjonowanieDanych
 
         protected void ButtonDodaniePac_Click(object sender, EventArgs e)
         {
-            System.Random x = new Random();
-            //LabelImie.Text = (Losowanie(Convert.ToInt32(imieCountS))).ToString();
-            //LabelNazwisko.Text = (Losowanie(Convert.ToInt32(nazwiskoCountS))).ToString();
+            if (Losowanie(2) == 1)
+                plec = "K";
+            else
+                plec = "M";
 
+
+            LabelPlec.Text = Convert.ToString(Losowanie(3));
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
             conn.Open();
-            string imieCount = "select imie from ViewImiona where pozycja = " + (Losowanie(Convert.ToInt32(imieCountS))).ToString();
-            string nazwiskoCount = "select nazwisko from ViewNazwiska where pozycja = " + (Losowanie(Convert.ToInt32(nazwiskoCountS))).ToString();
+            //string imieCount = "select imie from ViewImiona where pozycja = " + (Losowanie(Convert.ToInt32(imieCountS)+1)).ToString();
+            string imieCount = "select imie from ViewImiona where pozycja = " + (Losowanie(Convert.ToInt32(imieCountK) + 1)).ToString();
+            string nazwiskoCount = "select nazwisko from ViewNazwiska where pozycja = " + (Losowanie(Convert.ToInt32(nazwiskoCountK)+1)).ToString();
 
             SqlCommand com = new SqlCommand(imieCount, conn);
-            LabelImie.Text = com.ExecuteScalar().ToString();
             SqlCommand com2 = new SqlCommand(nazwiskoCount, conn);
+            //LabelPlec.Text = plec;
+            LabelImie.Text = com.ExecuteScalar().ToString();
             LabelNazwisko.Text = com2.ExecuteScalar().ToString();
-
-
+            LabelPlec.Text = PobierzWartoscSQL("count(*)", "ViewImionaK");
             conn.Close();
 
             /*
@@ -98,11 +108,30 @@ namespace WersjonowanieDanych
                    }*/
         }
 
-        protected int Losowanie( int koniec)
+        protected int Losowanie(int koniec)
         {
             System.Random x = new Random();
-
             return x.Next(1, koniec);
+        }
+
+        protected string PobierzWartoscSQL(string kolumna, string tabela)
+        {
+            string zapytanie = "select " + kolumna + " from " + tabela;
+            string wynik = "0";
+            try
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
+                conn.Open();
+                SqlCommand com = new SqlCommand(zapytanie, conn);
+                wynik = com.ExecuteScalar().ToString();
+                conn.Close();
+            }
+            catch(Exception ex)
+            {
+                Response.Write("error: " + ex.ToString());
+            }
+
+            return wynik;
         }
     }
 }

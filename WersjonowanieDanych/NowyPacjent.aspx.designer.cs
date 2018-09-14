@@ -58,13 +58,22 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelImie;
         
         /// <summary>
-        /// Kontrolka LabelImieCount.
+        /// Kontrolka LabelImieCountK.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelImieCount;
+        protected global::System.Web.UI.WebControls.Label LabelImieCountK;
+        
+        /// <summary>
+        /// Kontrolka LabelImieCountM.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelImieCountM;
         
         /// <summary>
         /// Kontrolka LabelNazwisko.
@@ -76,22 +85,22 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelNazwisko;
         
         /// <summary>
-        /// Kontrolka LabelNazwiskoCount.
+        /// Kontrolka LabelNazwiskoCountK.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelNazwiskoCount;
+        protected global::System.Web.UI.WebControls.Label LabelNazwiskoCountK;
         
         /// <summary>
-        /// Kontrolka LabelPesel.
+        /// Kontrolka LabelNazwiskoCountM.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPesel;
+        protected global::System.Web.UI.WebControls.Label LabelNazwiskoCountM;
         
         /// <summary>
         /// Kontrolka ButtonDodaniePac.
