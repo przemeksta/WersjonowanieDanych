@@ -21,26 +21,16 @@ namespace WersjonowanieDanych
         {
             if (Session["New"] != null)
             {
-                /*
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
-                conn.Open();
-                string imieCount = "select count(*) from ViewImionaK";
-                string nazwiskoCount = "select count(*) from ViewNazwiskaK";
-                //string imieCount = "select count(*) from ViewImionaK";
-                //string nazwiskoCount = "select count(*) from ViewNazwiskaK";
+                // pobiera ilosc wierszy do losowania
+                imieCountK = PobierzWartoscSQL("count(*)", "ViewImionaK");
+                imieCountM = PobierzWartoscSQL("count(*)", "ViewImionaM");
+                nazwiskoCountK = PobierzWartoscSQL("count(*)", "ViewNazwiskaK");
+                nazwiskoCountM = PobierzWartoscSQL("count(*)", "ViewNazwiskaM");
 
-                SqlCommand com = new SqlCommand(imieCount, conn);
-                imieCountK = com.ExecuteScalar().ToString();
                 LabelImieCountK.Text = imieCountK;
-                SqlCommand com2 = new SqlCommand(nazwiskoCount, conn);
-                nazwiskoCountK = com2.ExecuteScalar().ToString();
+                LabelImieCountM.Text = imieCountM;
                 LabelNazwiskoCountK.Text = nazwiskoCountK;
- 
-                conn.Close();*/
-                LabelImieCountK.Text = PobierzWartoscSQL("count(*)", "ViewImionaK");
-                LabelImieCountM.Text = PobierzWartoscSQL("count(*)", "ViewImionaM");
-                LabelNazwiskoCountK.Text = PobierzWartoscSQL("count(*)", "ViewNazwiskaK");
-                LabelNazwiskoCountM.Text = PobierzWartoscSQL("count(*)", "ViewNazwiskaM");
+                LabelNazwiskoCountM.Text = nazwiskoCountM;
             }
             else
                 Response.Redirect("LogIN.aspx");
@@ -48,27 +38,28 @@ namespace WersjonowanieDanych
 
         protected void ButtonDodaniePac_Click(object sender, EventArgs e)
         {
-            if (Losowanie(2) == 1)
+            // losujemy pleć
+            if (Losowanie(3) == 1)
                 plec = "K";
             else
                 plec = "M";
 
+            Response.Write(plec);
+            LabelPlec.Text = plec;
 
-            LabelPlec.Text = Convert.ToString(Losowanie(3));
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
-            conn.Open();
-            //string imieCount = "select imie from ViewImiona where pozycja = " + (Losowanie(Convert.ToInt32(imieCountS)+1)).ToString();
-            string imieCount = "select imie from ViewImiona where pozycja = " + (Losowanie(Convert.ToInt32(imieCountK) + 1)).ToString();
-            string nazwiskoCount = "select nazwisko from ViewNazwiska where pozycja = " + (Losowanie(Convert.ToInt32(nazwiskoCountK)+1)).ToString();
+            if (plec == "K")
+            {
+                LabelImie.Text = PobierzWartoscSQL("imie", "ViewImionaK", "pozycja = " + (Losowanie(Convert.ToInt32(imieCountK)).ToString()));
+                LabelNazwisko.Text = PobierzWartoscSQL("nazwisko", "ViewNazwiskaK", "pozycja = " + (Losowanie(Convert.ToInt32(nazwiskoCountK)).ToString()));
+            }
 
-            SqlCommand com = new SqlCommand(imieCount, conn);
-            SqlCommand com2 = new SqlCommand(nazwiskoCount, conn);
-            //LabelPlec.Text = plec;
-            LabelImie.Text = com.ExecuteScalar().ToString();
-            LabelNazwisko.Text = com2.ExecuteScalar().ToString();
-            LabelPlec.Text = PobierzWartoscSQL("count(*)", "ViewImionaK");
-            conn.Close();
+            if (plec == "M")
+            {
+                LabelImie.Text = PobierzWartoscSQL("imie", "ViewImionaM", "pozycja = " + (Losowanie(Convert.ToInt32(imieCountM)).ToString()));
+                LabelNazwisko.Text = PobierzWartoscSQL("nazwisko", "ViewNazwiskaM", "pozycja = " + (Losowanie(Convert.ToInt32(nazwiskoCountM)).ToString()));
+            }
 
+           
             /*
             try
             {
@@ -132,6 +123,25 @@ namespace WersjonowanieDanych
                 conn.Close();
             }
             catch(Exception ex)
+            {
+                Response.Write("error: " + ex.ToString());
+            }
+            return wynik;
+        }
+
+        protected string PobierzWartoscSQL(string kolumna, string tabela, string warunek)
+        {
+            string zapytanie = "select " + kolumna + " from " + tabela + " where " + warunek;
+            string wynik = "error";
+            try
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
+                conn.Open();
+                SqlCommand com = new SqlCommand(zapytanie, conn);
+                wynik = com.ExecuteScalar().ToString();
+                conn.Close();
+            }
+            catch (Exception ex)
             {
                 Response.Write("error: " + ex.ToString());
             }
