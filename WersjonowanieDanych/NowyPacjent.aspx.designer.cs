@@ -112,6 +112,42 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelNazwiskoCountM;
         
         /// <summary>
+        /// Kontrolka LabelAdresKod.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAdresKod;
+        
+        /// <summary>
+        /// Kontrolka LabelAdresCount.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAdresCount;
+        
+        /// <summary>
+        /// Kontrolka LabelAdresMiasto.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAdresMiasto;
+        
+        /// <summary>
+        /// Kontrolka LabelAdresUlica.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAdresUlica;
+        
+        /// <summary>
         /// Kontrolka ButtonDodaniePac.
         /// </summary>
         /// <remarks>

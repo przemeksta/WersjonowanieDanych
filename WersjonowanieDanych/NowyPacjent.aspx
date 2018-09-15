@@ -20,11 +20,6 @@
             background-color: #FFCCFF;
             height: 23px;
         }
-        .auto-style9 {
-            width: 144px;
-            color: #FF0066;
-            background-color: #FF99FF;
-        }
         .auto-style10 {
             width: 437px;
         }
@@ -33,7 +28,7 @@
             background-color: #FFCCFF;
         }
         .auto-style12 {
-            width: 146px;
+            width: 215px;
             background-color: #FFCCFF;
         }
         .auto-style13 {
@@ -42,7 +37,7 @@
             background-color: #FFCCFF;
         }
         .auto-style14 {
-            width: 146px;
+            width: 215px;
             color: #000000;
             background-color: #FFCCFF;
         }
@@ -64,17 +59,6 @@
             background-color: #FFCCFF;
             height: 23px;
         }
-        .auto-style19 {
-            width: 146px;
-            background-color: #FFCCFF;
-            height: 23px;
-        }
-        .auto-style20 {
-            width: 144px;
-            color: #FF0066;
-            height: 23px;
-            background-color: #FF99FF;
-        }
         .auto-style21 {
             width: 156px;
             height: 21px;
@@ -85,7 +69,7 @@
             height: 21px;
         }
         .auto-style23 {
-            width: 146px;
+            width: 215px;
             background-color: #FFCCFF;
             height: 21px;
         }
@@ -121,13 +105,13 @@
         .auto-style30 {
             width: 144px;
             color: #FF0066;
-            background-color: #CC99FF;
+            background-color: #99CCFF;
         }
         .auto-style31 {
             width: 144px;
             color: #FF0066;
             height: 23px;
-            background-color: #CC99FF;
+            background-color: #99CCFF;
         }
         .auto-style32 {
             width: 144px;
@@ -144,6 +128,14 @@
             width: 144px;
             height: 23px;
             background-color: #CC99FF;
+        }
+        .auto-style35 {
+            background-color: #FFCCFF;
+            height: 23px;
+            width: 215px;
+        }
+        .auto-style36 {
+            color: #000000;
         }
     </style>
 </head>
@@ -174,7 +166,7 @@
                     <asp:HyperLink ID="HyperLinkListaPacv" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
                 </td>
                 <td class="auto-style8">Dodanie Pacjenta</td>
-                <td class="auto-style8">Losowanie</td>
+                <td class="auto-style35">Losowanie</td>
                 <td class="auto-style16">Count</td>
                 <td class="auto-style34">&nbsp;</td>
                 <td class="auto-style17"></td>
@@ -223,18 +215,33 @@
             </tr>
             <tr>
                 <td class="auto-style15"></td>
-                <td class="auto-style18">&nbsp;</td>
-                <td class="auto-style19">
-                    &nbsp;</td>
-                <td class="auto-style20"></td>
+                <td class="auto-style18">Adres</td>
+                <td class="auto-style35">
+                    <asp:Label ID="LabelAdresKod" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style31">
+                    <asp:Label ID="LabelAdresCount" runat="server" CssClass="auto-style36"></asp:Label>
+                </td>
                 <td class="auto-style31">&nbsp;</td>
                 <td class="auto-style17"></td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style13">&nbsp;</td>
-                <td class="auto-style14">&nbsp;</td>
-                <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style14">
+                    <asp:Label ID="LabelAdresMiasto" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style30">&nbsp;</td>
+                <td class="auto-style30">&nbsp;</td>
+                <td class="auto-style10">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style14">
+                    <asp:Label ID="LabelAdresUlica" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
@@ -242,15 +249,7 @@
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style13">&nbsp;</td>
                 <td class="auto-style14">&nbsp;</td>
-                <td class="auto-style9">&nbsp;</td>
                 <td class="auto-style30">&nbsp;</td>
-                <td class="auto-style10">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style13">&nbsp;</td>
-                <td class="auto-style14">&nbsp;</td>
-                <td class="auto-style9">&nbsp;</td>
                 <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
@@ -260,7 +259,7 @@
                     <asp:Button ID="ButtonDodaniePac" runat="server" CssClass="auto-style4" OnClick="ButtonDodaniePac_Click" Text="Dodanie Pacjenta" Width="130px" />
                     </strong></td>
                 <td class="auto-style14">&nbsp;</td>
-                <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style30">&nbsp;</td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
