@@ -11,6 +11,9 @@
         .auto-style12 {
             font-size: medium;
         }
+        .auto-style13 {
+            height: 659px;
+        }
         </style>
 </head>
 <body>
@@ -18,9 +21,9 @@
         <p>
             <asp:HyperLink ID="HyperLinkProgramGL" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
         </p>
-        <div>
+        <div class="auto-style13">
             <asp:SqlDataSource ID="SqlDataSourceUzytkownicy" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT * FROM [Uzytkownicy]" OnSelecting="SqlDataSourceUzytkownicy_Selecting"></asp:SqlDataSource>
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="ID_Uzytkownika" DataSourceID="SqlDataSourceUzytkownicy" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="ID_Uzytkownika" DataSourceID="SqlDataSourceUzytkownicy" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" PageSize="20">
                 <Columns>
                     <asp:BoundField DataField="ID_Uzytkownika" HeaderText="ID_Uzytkownika" ReadOnly="True" SortExpression="ID_Uzytkownika" />
                     <asp:BoundField DataField="Nazwa" HeaderText="Nazwa" SortExpression="Nazwa" />

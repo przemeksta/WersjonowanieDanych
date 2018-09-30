@@ -75,8 +75,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <p class="auto-style1">
-            <table class="auto-style2">
+        <p class="auto-style1"></p>
+            <table class="auto-style2"> 
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style14" colspan="2">
@@ -127,7 +127,6 @@
                         systemach przechowywania danych na przykładzie dokumentacji medycznej.</em></strong></td>
                 </tr>
             </table>
-        </p>
     </form>
 </body>
 </html>
