@@ -11,7 +11,12 @@ namespace WersjonowanieDanych
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["New"] != null)
+            {
+                LabelWitam.Text += Session["New"].ToString();
+            }
+            else
+                Response.Redirect("LogIN.aspx");
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

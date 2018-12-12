@@ -6,11 +6,30 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+
+        .auto-style2 {
+            color: #00FFFF;
+            font-size: large;
+        }
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <p>
-            <asp:HyperLink ID="HyperLinkProgramGL" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+
+
+
+            <asp:Label ID="LabelWitam" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
+
+
+
+        </p>
+        <p>
+            <asp:HyperLink ID="HyperLinkProgramGL0" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+        </p>
+        <p>
+                    <asp:HyperLink ID="HyperLinkDodaniePacjenta0" runat="server" NavigateUrl="~/NowyPacjent.aspx">Dodanie pacjenta</asp:HyperLink>
         </p>
         <div>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT * FROM [Pacjenci]"></asp:SqlDataSource>
@@ -34,6 +53,7 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
+            <br />
         </div>
     </form>
 </body>

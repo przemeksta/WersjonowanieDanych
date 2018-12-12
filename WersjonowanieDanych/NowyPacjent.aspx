@@ -145,7 +145,13 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style15">
-            <asp:HyperLink ID="HyperLinkProgramGL" runat="server" NavigateUrl="~/Menu.aspx">Program główny</asp:HyperLink>
+
+
+
+            <asp:Label ID="LabelWitam" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
+
+
+
                 </td>
                 <td class="auto-style28" colspan="2">&nbsp;</td>
                 <td class="auto-style27">&nbsp;</td>
@@ -154,7 +160,24 @@
             </tr>
             <tr>
                 <td class="auto-style15">
-                    <asp:HyperLink ID="HyperLinkDodanieDokumntu" runat="server" NavigateUrl="~/NowyDokument.aspx">Dodanie dokumntu</asp:HyperLink>
+                    &nbsp;</td>
+                <td class="auto-style28" colspan="2">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td class="auto-style26">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style15">
+            <asp:HyperLink ID="HyperLinkProgramGL" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+                </td>
+                <td class="auto-style28" colspan="2"></td>
+                <td class="auto-style27"></td>
+                <td class="auto-style27"></td>
+                <td class="auto-style26"></td>
+            </tr>
+            <tr>
+                <td class="auto-style15">
+                    <asp:HyperLink ID="HyperLinkListaPacv0" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
                 </td>
                 <td class="auto-style28" colspan="2">&nbsp;</td>
                 <td class="auto-style27">&nbsp;</td>
@@ -163,8 +186,7 @@
             </tr>
             <tr>
                 <td class="auto-style15">
-                    <asp:HyperLink ID="HyperLinkListaPacv" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style8">Dodanie Pacjenta</td>
                 <td class="auto-style35">Losowanie</td>
                 <td class="auto-style16">Count</td>

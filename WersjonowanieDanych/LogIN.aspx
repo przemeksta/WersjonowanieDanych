@@ -118,7 +118,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style15" colspan="2"><strong>Pracownia problemowa</strong></td>
+                    <td class="auto-style15" colspan="2"><strong>Program</strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>

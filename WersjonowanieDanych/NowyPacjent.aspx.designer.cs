@@ -22,6 +22,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Kontrolka LabelWitam.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelWitam;
+        
+        /// <summary>
         /// Kontrolka HyperLinkProgramGL.
         /// </summary>
         /// <remarks>
@@ -31,22 +40,13 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkProgramGL;
         
         /// <summary>
-        /// Kontrolka HyperLinkDodanieDokumntu.
+        /// Kontrolka HyperLinkListaPacv0.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkDodanieDokumntu;
-        
-        /// <summary>
-        /// Kontrolka HyperLinkListaPacv.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaPacv;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaPacv0;
         
         /// <summary>
         /// Kontrolka LabelPlec.

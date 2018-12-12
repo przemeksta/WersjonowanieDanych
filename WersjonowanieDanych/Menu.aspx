@@ -51,13 +51,34 @@
         <table class="auto-style3">
             <tr>
                 <td class="auto-style6">
-                    &nbsp;</td>
-                <td class="auto-style7">&nbsp;</td>
-                <td class="auto-style8">&nbsp;</td>
+                    </td>
+                <td class="auto-style7"></td>
+                <td class="auto-style8"></td>
+            </tr>
+            <tr>
+                <td class="auto-style6">
+                    <asp:HyperLink ID="HyperLinkListaUzytkownikow0" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+                </td>
+                <td class="auto-style7"></td>
+                <td class="auto-style8"></td>
             </tr>
             <tr>
                 <td class="auto-style4">
                     <asp:HyperLink ID="HyperLinkListaUzytkownikow" runat="server" NavigateUrl="~/ListaUzytkownikow.aspx">Lista użytkowników</asp:HyperLink>
+                </td>
+                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
+                    <asp:HyperLink ID="HyperLinkListaUzytkownikow1" runat="server" NavigateUrl="~/NowyUzytkownik.aspx">Dodanie użytkowników</asp:HyperLink>
+                </td>
+                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
+                    <asp:HyperLink ID="HyperLinkListaPacv" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
                 </td>
                 <td class="auto-style5">&nbsp;</td>
                 <td>&nbsp;</td>
@@ -71,8 +92,21 @@
             </tr>
             <tr>
                 <td class="auto-style4">
+                    <asp:HyperLink ID="HyperLinkDodanieDokumntu0" runat="server" NavigateUrl="~/ListaDokumntow.aspx">Lista dokumentów</asp:HyperLink>
+                </td>
+                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
                     <asp:HyperLink ID="HyperLinkDodanieDokumntu" runat="server" NavigateUrl="~/NowyDokument.aspx">Dodanie dokumntu</asp:HyperLink>
                 </td>
+                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
+                    &nbsp;</td>
                 <td class="auto-style5">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>

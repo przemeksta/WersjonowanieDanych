@@ -11,10 +11,12 @@ namespace WersjonowanieDanych
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["New"] == null)
+            if (Session["New"] != null)
             {
-                Response.Redirect("LogIN.aspx");
+                LabelWitam.Text += Session["New"].ToString();
             }
+            else
+                Response.Redirect("LogIN.aspx");
         }
 
         protected void SqlDataSourceUzytkownicy_Selecting(object sender, SqlDataSourceSelectingEventArgs e)

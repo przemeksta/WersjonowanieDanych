@@ -13,10 +13,12 @@ namespace WersjonowanieDanych
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["New"] == null)
+            if (Session["New"] != null)
             {
-                Response.Redirect("Login.aspx");
+                LabelWitam.Text += Session["New"].ToString();
             }
+            else
+                Response.Redirect("LogIN.aspx");
         }
 
         protected void ButtonZapisz_Click(object sender, EventArgs e)

@@ -12,14 +12,36 @@
             font-size: medium;
         }
         .auto-style13 {
-            height: 659px;
+            height: 627px;
+        }
+        .auto-style14 {
+            height: 22px;
+        }
+        .auto-style2 {
+            color: #00FFFF;
+            font-size: large;
+        }
+        .auto-style15 {
+            height: 24px;
         }
         </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <p>
+        <p class="auto-style15">
+
+
+
+            <asp:Label ID="LabelWitam" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
+
+
+
+        </p>
+        <p class="auto-style14">
             <asp:HyperLink ID="HyperLinkProgramGL" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+        </p>
+        <p class="auto-style14">
+                        <asp:HyperLink ID="HyperLinkNowyUzytkownik0" runat="server" CssClass="auto-style12" NavigateUrl="~/NowyUzytkownik.aspx">Dodanie użytkownika</asp:HyperLink>
         </p>
         <div class="auto-style13">
             <asp:SqlDataSource ID="SqlDataSourceUzytkownicy" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT * FROM [Uzytkownicy]" OnSelecting="SqlDataSourceUzytkownicy_Selecting"></asp:SqlDataSource>
@@ -39,8 +61,6 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
-            <br />
-                        <asp:HyperLink ID="HyperLinkNowyUzytkownik" runat="server" CssClass="auto-style12" NavigateUrl="~/NowyUzytkownik.aspx">Nowy użytkownik</asp:HyperLink>
         </div>
     </form>
 </body>

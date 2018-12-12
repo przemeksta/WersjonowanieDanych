@@ -31,6 +31,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelWitam;
         
         /// <summary>
+        /// Kontrolka HyperLinkListaUzytkownikow0.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaUzytkownikow0;
+        
+        /// <summary>
         /// Kontrolka HyperLinkListaUzytkownikow.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,24 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaUzytkownikow;
         
         /// <summary>
+        /// Kontrolka HyperLinkListaUzytkownikow1.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaUzytkownikow1;
+        
+        /// <summary>
+        /// Kontrolka HyperLinkListaPacv.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaPacv;
+        
+        /// <summary>
         /// Kontrolka HyperLinkDodaniePacjenta.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace WersjonowanieDanych {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkDodaniePacjenta;
+        
+        /// <summary>
+        /// Kontrolka HyperLinkDodanieDokumntu0.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkDodanieDokumntu0;
         
         /// <summary>
         /// Kontrolka HyperLinkDodanieDokumntu.

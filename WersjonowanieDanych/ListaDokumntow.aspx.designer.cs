@@ -10,16 +10,16 @@
 namespace WersjonowanieDanych {
     
     
-    public partial class ListaPacjentow {
+    public partial class ListaDokumntow {
         
         /// <summary>
-        /// Kontrolka form1.
+        /// Kontrolka form2.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
         /// Kontrolka LabelWitam.
@@ -31,22 +31,13 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelWitam;
         
         /// <summary>
-        /// Kontrolka HyperLinkProgramGL0.
+        /// Kontrolka HyperLinkProgramGL.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkProgramGL0;
-        
-        /// <summary>
-        /// Kontrolka HyperLinkDodaniePacjenta0.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkDodaniePacjenta0;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkProgramGL;
         
         /// <summary>
         /// Kontrolka SqlDataSource1.

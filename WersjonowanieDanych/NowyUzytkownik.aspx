@@ -58,22 +58,69 @@
         .auto-style17 {
             font-size: large;
         }
-    </style>
+     .auto-style18 {
+         width: 300px;
+         text-align: left;
+         height: 30px;
+     }
+     .auto-style19 {
+         width: 182px;
+         height: 30px;
+     }
+     .auto-style20 {
+         text-align: left;
+         font-size: x-large;
+         height: 30px;
+     }
+     .auto-style23 {
+         text-align: left;
+         font-size: x-large;
+         height: 23px;
+     }
+     .auto-style24 {
+         height: 23px;
+         width: 300px;
+         text-align: left;
+     }
+     .auto-style25 {
+         height: 23px;
+         width: 182px;
+     }
+        .auto-style2 {
+            color: #00FFFF;
+            font-size: large;
+        }
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
 
             <div class="auto-style16">
-                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="auto-style17" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+
+
+
+            <asp:Label ID="LabelWitam" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
+
+
+
             </div>
 
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style7">
-                        &nbsp;</td>
-                    <td class="auto-style16">
+                    <td class="auto-style24">&nbsp;</td>
+                    <td class="auto-style25">
+                        </td>
+                    <td class="auto-style23">
+                        </td>
+                </tr>
+                <tr>
+                    <td class="auto-style18">
+                <asp:HyperLink ID="HyperLink4" runat="server" CssClass="auto-style17" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+                    </td>
+                    <td class="auto-style19">
+                        </td>
+                    <td class="auto-style20">
                         <strong>Utowrzenie użytkownika</strong></td>
                 </tr>
                 <tr>
