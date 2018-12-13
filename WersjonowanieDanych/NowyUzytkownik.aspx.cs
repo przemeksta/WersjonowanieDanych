@@ -38,11 +38,16 @@ namespace WersjonowanieDanych
                 }
                 else
                 {
-                    string insertQuery = "insert into Uzytkownicy (Nazwa, Haslo) values (@uzytkownik, @haslo)";
+                    string insertQuery = "insert into Uzytkownicy (Nazwa, Imie, Nazwisko, Haslo, Nr_zawodu, Funkcja) " +
+                        "values (@uzytkownik, @imie, @nazwisko, @haslo, @zawod, @funkcja)";
                     SqlCommand com2 = new SqlCommand(insertQuery, conn);
 
                     com2.Parameters.AddWithValue("@uzytkownik", TextBoxUzytkownik.Text);
+                    com2.Parameters.AddWithValue("@imie", TextBoxImie.Text);
+                    com2.Parameters.AddWithValue("@nazwisko", TextBoxNazwisko.Text);
                     com2.Parameters.AddWithValue("@haslo", TextBoxHaslo.Text);
+                    com2.Parameters.AddWithValue("@zawod", TextBoxNrZawodu.Text);
+                    com2.Parameters.AddWithValue("@funkcja", DropDownListFunkcja.Text);
 
                     com2.ExecuteNonQuery();
                     Response.Write("Rejestracja udana");
@@ -55,6 +60,11 @@ namespace WersjonowanieDanych
             {
                 Response.Write("error: " + ex.ToString());
             }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

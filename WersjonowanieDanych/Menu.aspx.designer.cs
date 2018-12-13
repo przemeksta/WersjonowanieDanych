@@ -31,13 +31,13 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelWitam;
         
         /// <summary>
-        /// Kontrolka HyperLinkListaUzytkownikow0.
+        /// Kontrolka HyperLinkListaMenu.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaUzytkownikow0;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaMenu;
         
         /// <summary>
         /// Kontrolka HyperLinkListaUzytkownikow.
@@ -49,13 +49,13 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaUzytkownikow;
         
         /// <summary>
-        /// Kontrolka HyperLinkListaUzytkownikow1.
+        /// Kontrolka HyperLinkListaNowyUzytkownik.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaUzytkownikow1;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaNowyUzytkownik;
         
         /// <summary>
         /// Kontrolka HyperLinkListaPacv.

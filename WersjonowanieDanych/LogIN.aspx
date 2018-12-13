@@ -75,7 +75,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <p class="auto-style1"></p>
             <table class="auto-style2"> 
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
@@ -122,8 +121,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style16" colspan="2"><strong><em>Analiza sposobów wersjonowania danych w relacyjnych i nierelacyjnych
-                        <br />
+                    <td class="auto-style16" colspan="2"><strong><em>Analiza sposobów wersjonowania danych w relacyjnych i nierelacyjnych<br />
                         systemach przechowywania danych na przykładzie dokumentacji medycznej.</em></strong></td>
                 </tr>
             </table>

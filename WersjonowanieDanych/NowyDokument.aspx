@@ -29,11 +29,7 @@
                 <tr>
                     <td class="auto-style3">
 
-
-
             <asp:Label ID="LabelWitam" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
-
-
 
                     </td>
                     <td class="auto-style4">&nbsp;</td>

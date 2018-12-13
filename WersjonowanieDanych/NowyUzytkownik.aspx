@@ -5,91 +5,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Nowy</title>
+    <link href="Style.css" rel="stylesheet" />
  <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style3 {
-            height: 25px;
-            text-align: left;
-        }
-        .auto-style4 {
-            width: 300px;
-            text-align: right;
-        }
-        .auto-style6 {
-            height: 25px;
-            width: 300px;
-            text-align: right;
-        }
-        .auto-style7 {
-            width: 182px;
-        }
-        .auto-style9 {
-            height: 25px;
-            width: 182px;
-        }
-        .auto-style10 {
-            height: 26px;
-            width: 300px;
-            text-align: right;
-        }
-        .auto-style11 {
-            height: 26px;
-            width: 182px;
-        }
-        .auto-style12 {
-            height: 26px;
-            text-align: left;
-        }
-        .auto-style13 {
-            text-align: left;
-        }
-        .auto-style14 {
-            width: 80px;
-            height: 30px;
-            margin-top: 0px;
-        }
-        .auto-style16 {
-            text-align: left;
-            font-size: x-large;
-        }
-        .auto-style17 {
-            font-size: large;
-        }
-     .auto-style18 {
-         width: 300px;
-         text-align: left;
-         height: 30px;
+     .auto-style33 {
+         width: 168px;
+         height: 34px;
      }
-     .auto-style19 {
-         width: 182px;
-         height: 30px;
+     .auto-style34 {
+         width: 258px;
+         height: 34px;
      }
-     .auto-style20 {
-         text-align: left;
-         font-size: x-large;
+     .auto-style35 {
+         width: 76px;
          height: 30px;
-     }
-     .auto-style23 {
-         text-align: left;
-         font-size: x-large;
+         margin-top: 0px;
+         margin-bottom: 0px;
+     }   
+     .auto-style36 {
          height: 23px;
      }
-     .auto-style24 {
+     .auto-style37 {
+         width: 168px;
          height: 23px;
-         width: 300px;
-         text-align: left;
      }
-     .auto-style25 {
+     .auto-style38 {
+         width: 258px;
          height: 23px;
-         width: 182px;
+     }        
+     .auto-style40 {
+         text-align: right;
      }
-        .auto-style2 {
-            color: #00FFFF;
-            font-size: large;
-        }
+     .auto-style41 {
+         font-size: xx-large;
+     }
+     
         </style>
 </head>
 <body>
@@ -106,71 +56,141 @@
 
             </div>
 
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style24">&nbsp;</td>
-                    <td class="auto-style25">
-                        </td>
-                    <td class="auto-style23">
-                        </td>
-                </tr>
-                <tr>
-                    <td class="auto-style18">
-                <asp:HyperLink ID="HyperLink4" runat="server" CssClass="auto-style17" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
-                    </td>
-                    <td class="auto-style19">
-                        </td>
-                    <td class="auto-style20">
-                        <strong>Utowrzenie użytkownika</strong></td>
-                </tr>
-                <tr>
-                    <td class="auto-style4"><strong>Użytkownik:</strong></td>
-                    <td class="auto-style7">
+                    <table class="auto-style2">
+            <tr>
+                <td>&nbsp;</td>
+                <td class="auto-style25">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">
+                    <asp:HyperLink ID="HyperLinkListaMenu" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+                </td>
+                <td class="auto-style25">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">
+                    <asp:HyperLink ID="HyperLinkListaNowyUzytkownik" runat="server" NavigateUrl="~/NowyUzytkownik.aspx">Dodanie użytkowników</asp:HyperLink>
+                </td>
+                <td class="auto-style25">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="auto-style25">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style29"></td>
+                <td class="auto-style30"></td>
+                <td class="auto-style41"><strong>Nowy użytkownik</strong></td>
+                <td class="auto-style29"></td>
+                <td class="auto-style29"></td>
+            </tr>
+            <tr>
+                <td class="auto-style40"><strong>Użytkownik:</strong></td>
+                <td class="auto-style25">
                         <asp:TextBox ID="TextBoxUzytkownik" runat="server" Width="160px"></asp:TextBox>
                     </td>
-                    <td class="auto-style13">
+                <td class="auto-style27">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxUzytkownik" ErrorMessage="Brak użytkownika" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
-                </tr>
-                <tr>
-                    <td class="auto-style6"><strong>Hasło:</strong></td>
-                    <td class="auto-style9">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style40"><strong>Imie:</strong></td>
+                <td class="auto-style25">
+                        <asp:TextBox ID="TextBoxImie" runat="server" Width="160px"></asp:TextBox>
+                    </td>
+                <td class="auto-style27">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxImie" ErrorMessage="Brak imienia" ForeColor="Red"></asp:RequiredFieldValidator>
+                    </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style40"><strong>Nazwisko:</strong></td>
+                <td class="auto-style25">
+                        <asp:TextBox ID="TextBoxNazwisko" runat="server" Width="160px"></asp:TextBox>
+                    </td>
+                <td class="auto-style27">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextBoxNazwisko" ErrorMessage="Brak nazwiska" ForeColor="Red"></asp:RequiredFieldValidator>
+                    </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style40"><strong>Hasło:</strong></td>
+                <td class="auto-style25">
                         <asp:TextBox ID="TextBoxHaslo" runat="server" TextMode="Password" Width="160px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">
+                <td class="auto-style27">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxHaslo" ErrorMessage="Brak hasła" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
-                </tr>
-                <tr>
-                    <td class="auto-style4"><strong>Potworz hasło:</strong></td>
-                    <td class="auto-style7">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style40"><strong>Powtórz hasło:</strong></td>
+                <td class="auto-style25">
                         <asp:TextBox ID="TextBoxPowHaslo" runat="server" TextMode="Password" Width="160px"></asp:TextBox>
                     </td>
-                    <td class="auto-style13">
+                <td class="auto-style27">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBoxPowHaslo" ErrorMessage="Brak hasla" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBoxHaslo" ControlToValidate="TextBoxPowHaslo" ErrorMessage="Błędne hasło" ForeColor="#3333CC"></asp:CompareValidator>
                     </td>
-                </tr>
-                <tr>
-                    <td class="auto-style10">&nbsp;</td>
-                    <td class="auto-style11">
-                        &nbsp;</td>
-                    <td class="auto-style12">
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style7">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style40"><strong>Nr prawa zawodu</strong></td>
+                <td class="auto-style25">
+                        <asp:TextBox ID="TextBoxNrZawodu" runat="server" Width="160px" MaxLength="7"></asp:TextBox>
+                    </td>
+                <td class="auto-style27">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style40"><strong>Funkcja</strong></td>
+                <td class="auto-style37">
+                    <asp:DropDownList ID="DropDownListFunkcja" runat="server" Height="30px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="165px">
+                        <asp:ListItem>Lekarz</asp:ListItem>
+                        <asp:ListItem>Pielegniarka</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td class="auto-style38"></td>
+                <td class="auto-style36"></td>
+                <td class="auto-style36"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="auto-style25">&nbsp;</td>
+                <td class="auto-style27">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style32"></td>
+                <td class="auto-style33">
                         <asp:Button ID="ButtonZapisz" runat="server" Height="30px" OnClick="ButtonZapisz_Click" Text="Zapisz" Width="80px" />
-                        <input id="Reset1" class="auto-style14" type="reset" value="Reset" /></td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+                        <input id="Reset1" class="auto-style35" type="reset" value="Reset" /></td>
+                <td class="auto-style34"></td>
+                <td class="auto-style32"></td>
+                <td class="auto-style32"></td>
+            </tr>
+        </table>
+
         </div>
     </form>
 </body>

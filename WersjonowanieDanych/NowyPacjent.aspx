@@ -83,20 +83,6 @@
             width: 437px;
             height: 21px;
         }
-        .auto-style26 {
-            width: 437px;
-            height: 23px;
-            background-color: #FFFFFF;
-        }
-        .auto-style27 {
-            width: 144px;
-            height: 23px;
-            background-color: #FFFFFF;
-        }
-        .auto-style28 {
-            background-color: #FFFFFF;
-            height: 23px;
-        }
         .auto-style29 {
             width: 144px;
             color: #000000;
@@ -142,47 +128,44 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
+            <asp:Label ID="Label1" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
+
+
         <table class="auto-style1">
             <tr>
-                <td class="auto-style15">
-
-
-
-            <asp:Label ID="LabelWitam" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
-
-
-
-                </td>
-                <td class="auto-style28" colspan="2">&nbsp;</td>
-                <td class="auto-style27">&nbsp;</td>
-                <td class="auto-style27">&nbsp;</td>
-                <td class="auto-style26">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style15">
-                    &nbsp;</td>
-                <td class="auto-style28" colspan="2">&nbsp;</td>
-                <td class="auto-style27">&nbsp;</td>
-                <td class="auto-style27">&nbsp;</td>
-                <td class="auto-style26">&nbsp;</td>
+                <td>
+            <asp:HyperLink ID="HyperLinkMenu" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style15">
-            <asp:HyperLink ID="HyperLinkProgramGL" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+                <td>
+                    <asp:HyperLink ID="HyperLinkListaPacv" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
                 </td>
-                <td class="auto-style28" colspan="2"></td>
-                <td class="auto-style27"></td>
-                <td class="auto-style27"></td>
-                <td class="auto-style26"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style15">
-                    <asp:HyperLink ID="HyperLinkListaPacv0" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
-                </td>
-                <td class="auto-style28" colspan="2">&nbsp;</td>
-                <td class="auto-style27">&nbsp;</td>
-                <td class="auto-style27">&nbsp;</td>
-                <td class="auto-style26">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style15">
@@ -190,7 +173,7 @@
                 <td class="auto-style8">Dodanie Pacjenta</td>
                 <td class="auto-style35">Losowanie</td>
                 <td class="auto-style16">Count</td>
-                <td class="auto-style34">&nbsp;</td>
+                <td class="auto-style34"></td>
                 <td class="auto-style17"></td>
             </tr>
             <tr>

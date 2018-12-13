@@ -6,36 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Menu</title>
-        <style type="text/css">
-        .auto-style1 {
-            font-size: x-large;
-            font-weight: bold;
-        }
-        .auto-style2 {
-            color: #00FFFF;
-            font-size: large;
-        }
-        .auto-style3 {
-            width: 100%;
-        }
-        .auto-style4 {
-            width: 480px;
-        }
-        .auto-style5 {
-            width: 139px;
-        }
-        .auto-style6 {
-            width: 480px;
-            height: 23px;
-        }
-        .auto-style7 {
-            width: 139px;
-            height: 23px;
-        }
-        .auto-style8 {
-            height: 23px;
-        }
-    </style>
+    <link href="Style.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -48,85 +19,87 @@
 
 
         </div>
-        <table class="auto-style3">
+        <table class="auto-style2">
             <tr>
-                <td class="auto-style6">
-                    </td>
-                <td class="auto-style7"></td>
-                <td class="auto-style8"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style6">
-                    <asp:HyperLink ID="HyperLinkListaUzytkownikow0" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
+                <td class="auto-style3">
+                    <asp:HyperLink ID="HyperLinkListaMenu" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
                 </td>
-                <td class="auto-style7"></td>
-                <td class="auto-style8"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4">
+                <td class="auto-style3">
                     <asp:HyperLink ID="HyperLinkListaUzytkownikow" runat="server" NavigateUrl="~/ListaUzytkownikow.aspx">Lista użytkowników</asp:HyperLink>
                 </td>
-                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4">
-                    <asp:HyperLink ID="HyperLinkListaUzytkownikow1" runat="server" NavigateUrl="~/NowyUzytkownik.aspx">Dodanie użytkowników</asp:HyperLink>
+                <td class="auto-style3">
+                    <asp:HyperLink ID="HyperLinkListaNowyUzytkownik" runat="server" NavigateUrl="~/NowyUzytkownik.aspx">Dodanie użytkowników</asp:HyperLink>
                 </td>
-                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4">
+                <td class="auto-style3">
                     <asp:HyperLink ID="HyperLinkListaPacv" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
                 </td>
-                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4">
+                <td class="auto-style3">
                     <asp:HyperLink ID="HyperLinkDodaniePacjenta" runat="server" NavigateUrl="~/NowyPacjent.aspx">Dodanie pacjenta</asp:HyperLink>
                 </td>
-                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4">
+                <td class="auto-style3">
                     <asp:HyperLink ID="HyperLinkDodanieDokumntu0" runat="server" NavigateUrl="~/ListaDokumntow.aspx">Lista dokumentów</asp:HyperLink>
                 </td>
-                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4">
+                <td class="auto-style3">
                     <asp:HyperLink ID="HyperLinkDodanieDokumntu" runat="server" NavigateUrl="~/NowyDokument.aspx">Dodanie dokumntu</asp:HyperLink>
                 </td>
-                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4">
-                    &nbsp;</td>
-                <td class="auto-style5">&nbsp;</td>
                 <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style4">&nbsp;</td>
-                <td class="auto-style5"><strong>
-            <asp:Button ID="ButtonLogout" runat="server" CssClass="auto-style1" Height="42px" OnClick="ButtonLogout_Click" Text="Logout" Width="136px" />
-            </strong>
-                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
+        <strong>
+            <asp:Button ID="ButtonLogout" runat="server" CssClass="auto-style1" Height="42px" OnClick="ButtonLogout_Click" Text="Logout" Width="136px" />
+        </strong>
     </form>
 </body>
 </html>

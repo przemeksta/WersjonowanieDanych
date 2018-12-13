@@ -31,22 +31,22 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelWitam;
         
         /// <summary>
-        /// Kontrolka HyperLinkProgramGL.
+        /// Kontrolka HyperLinkMenu.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkProgramGL;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkMenu;
         
         /// <summary>
-        /// Kontrolka HyperLinkNowyUzytkownik0.
+        /// Kontrolka HyperLinkListaNowyUzytkownik.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkNowyUzytkownik0;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaNowyUzytkownik;
         
         /// <summary>
         /// Kontrolka SqlDataSourceUzytkownicy.
