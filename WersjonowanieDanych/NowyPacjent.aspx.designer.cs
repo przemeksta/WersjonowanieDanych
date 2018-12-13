@@ -22,13 +22,13 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Kontrolka Label1.
+        /// Kontrolka LabelWitam.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label LabelWitam;
         
         /// <summary>
         /// Kontrolka HyperLinkMenu.

@@ -74,6 +74,15 @@
             </tr>
             <tr>
                 <td class="auto-style3">
+                    <asp:HyperLink ID="HyperLinkHistoriaChoroby" runat="server" NavigateUrl="~/HistoriaChoroby.aspx">Historia Choroby</asp:HyperLink>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">
                     <asp:HyperLink ID="HyperLinkDodanieDokumntu0" runat="server" NavigateUrl="~/ListaDokumntow.aspx">Lista dokumentów</asp:HyperLink>
                 </td>
                 <td>&nbsp;</td>

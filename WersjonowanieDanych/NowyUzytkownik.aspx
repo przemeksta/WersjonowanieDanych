@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Nowy</title>
+    <title>Nowy użytkownik</title>
     <link href="Style.css" rel="stylesheet" />
  <style type="text/css">
      .auto-style33 {

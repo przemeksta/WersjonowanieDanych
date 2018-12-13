@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Nowy pacjent</title>
     <style type="text/css">
         .auto-style1 {
             width: 1465px;
@@ -129,7 +129,7 @@
     <form id="form1" runat="server">
         <div>
 
-            <asp:Label ID="Label1" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
+            <asp:Label ID="LabelWitam" runat="server" Text="Witam " Width="301px" CssClass="auto-style2" Font-Size="Large" ForeColor="#00CCFF"></asp:Label>
 
 
         <table class="auto-style1">
