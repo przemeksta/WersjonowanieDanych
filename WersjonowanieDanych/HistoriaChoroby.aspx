@@ -23,7 +23,6 @@
             font-size: large;
         }
         .auto-style12 {
-            width: 120px;
             text-align: right;
             height: 26px;
         }
@@ -40,7 +39,6 @@
         }
         .auto-style17 {
             height: 23px;
-            width: 120px;
             text-align: right;
         }
         .auto-style18 {
@@ -88,6 +86,9 @@
         }
         .auto-style36 {
             width: 120px;
+        }
+        .auto-style38 {
+            color: #FF0000;
         }
     </style>
 </head>
@@ -162,7 +163,7 @@
                 </td>
                 <td class="auto-style12"><strong>Id pacjenta</strong></td>
                 <td class="auto-style19">
-                    <asp:Label ID="LabelIDPacjent" runat="server"></asp:Label>
+                    <asp:Label ID="LabelIDPacjent" runat="server" CssClass="auto-style38"></asp:Label>
                 </td>
                 <td class="auto-style22"></td>
                 <td class="auto-style20">&nbsp;</td>
@@ -176,7 +177,7 @@
                 </td>
                 <td class="auto-style17"><strong>Id izba</strong></td>
                 <td class="auto-style15">
-                    <asp:Label ID="LabelIDIzba" runat="server"></asp:Label>
+                    <asp:Label ID="LabelIDIzba" runat="server" CssClass="auto-style38"></asp:Label>
                 </td>
                 <td class="auto-style23"></td>
                 <td class="auto-style6">&nbsp;</td>
@@ -185,12 +186,12 @@
             <tr>
                 <td class="auto-style33" ><strong>Oddział</strong></td>
                 <td class="auto-style7">
-                    <asp:DropDownList ID="DropDownOddzial" runat="server" DataSourceID="SqlDataOddzial" DataTextField="Nazwa" DataValueField="ID_Oddzialu" Width="215px">
+                    <asp:DropDownList ID="DropDownOddzial1" runat="server" DataSourceID="SqlDataOddzial" DataTextField="Nazwa" DataValueField="ID_Oddzialu" Width="215px">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style17"><strong>Id oddział</strong></td>
                 <td class="auto-style15">
-                    <asp:Label ID="LabelIDOddzial" runat="server"></asp:Label>
+                    <asp:Label ID="LabelIDOddzial" runat="server" CssClass="auto-style38"></asp:Label>
                 </td>
                 <td class="auto-style23"></td>
                 <td class="auto-style6">&nbsp;</td>
@@ -199,12 +200,12 @@
             <tr>
                 <td class="auto-style33"><strong>Oddział 2</strong></td>
                 <td class="auto-style7">
-                    <asp:DropDownList ID="DropDownOddzial2" runat="server" DataSourceID="SqlDataOddzial2" DataTextField="Nazwa" DataValueField="ID_Oddzialu" Width="215px">
+                    <asp:DropDownList ID="DropDownOddzial2" runat="server" DataSourceID="SqlDataOddzial" DataTextField="Nazwa" DataValueField="ID_Oddzialu" Width="215px">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style17"><strong>Id oddział 2</strong></td>
                 <td class="auto-style15">
-                    <asp:Label ID="LabelIDOddzial2" runat="server"></asp:Label>
+                    <asp:Label ID="LabelIDOddzial2" runat="server" CssClass="auto-style38"></asp:Label>
                 </td>
                 <td class="auto-style23">&nbsp;</td>
                 <td class="auto-style6">&nbsp;</td>
@@ -213,10 +214,12 @@
             <tr>
                 <td class="auto-style34"><strong>Rozpoznanie głowne</strong></td>
                 <td>
-                    &nbsp;</td>
+                    <asp:DropDownList ID="DropDownRozpoznanie1" runat="server" DataSourceID="SqlDataRozpoznanie" DataTextField="DANE" DataValueField="ID_KodChoroby" Width="300px">
+                    </asp:DropDownList>
+                </td>
                 <td class="auto-style17"><strong>Id rozpoznania</strong></td>
                 <td class="auto-style15">
-                    <asp:Label ID="LabelIDRozpoznanie" runat="server"></asp:Label>
+                    <asp:Label ID="LabelIDRozpoznanie" runat="server" CssClass="auto-style38"></asp:Label>
                 </td>
                 <td class="auto-style23"></td>
                 <td class="auto-style6"></td>
@@ -225,14 +228,62 @@
             <tr>
                 <td class="auto-style34"><strong>Rozpoznanie dodatkowe</strong></td>
                 <td class="auto-style7">
-                    &nbsp;</td>
+                    <asp:DropDownList ID="DropDownRozpoznanie2" runat="server" DataSourceID="SqlDataRozpoznanie" DataTextField="DANE" DataValueField="ID_KodChoroby" Width="300px">
+                    </asp:DropDownList>
+                </td>
                 <td class="auto-style17"><strong>Id rozpozania 2</strong></td>
                 <td class="auto-style15">
-                    <asp:Label ID="LabelIDRozpoznanie2" runat="server"></asp:Label>
+                    <asp:Label ID="LabelIDRozpoznanie2" runat="server" CssClass="auto-style38"></asp:Label>
                 </td>
                 <td class="auto-style23"></td>
                 <td class="auto-style6"></td>
                 <td class="auto-style6"></td>
+            </tr>
+            <tr>
+                <td class="auto-style34"><strong>Procedura</strong></td>
+                <td class="auto-style7">
+                    <asp:DropDownList ID="DropDownProcedura1" runat="server" DataSourceID="SqlDataProcedura" DataTextField="DANE" DataValueField="ID_Procedury" Width="300px">
+                    </asp:DropDownList>
+                </td>
+                <td class="auto-style17"><strong>Id procedury</strong></td>
+                <td class="auto-style15">
+                    <asp:Label ID="LabelIDProcedura" runat="server" CssClass="auto-style38"></asp:Label>
+                </td>
+                <td class="auto-style23">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style34"><strong>Procedura 2</strong></td>
+                <td class="auto-style7">
+                    <asp:DropDownList ID="DropDownProcedura2" runat="server" DataSourceID="SqlDataProcedura" DataTextField="DANE" DataValueField="ID_Procedury" Width="300px">
+                    </asp:DropDownList>
+                </td>
+                <td class="auto-style17"><strong>Id procedury 2</strong></td>
+                <td class="auto-style15">
+                    <asp:Label ID="LabelIDProcedura2" runat="server" CssClass="auto-style38"></asp:Label>
+                </td>
+                <td class="auto-style23">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style32">&nbsp;</td>
+                <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style35">&nbsp;</td>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style32">&nbsp;</td>
+                <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style35">&nbsp;</td>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style32">&nbsp;</td>
@@ -265,8 +316,9 @@
         <asp:SqlDataSource ID="SqlDataIzba" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Oddzialu, Nazwa FROM Oddzialy WHERE (Czy_izba_przyjec = 1) AND (Czy_aktywna = 1)"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataOddzial" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Oddzialu, Nazwa FROM Oddzialy WHERE (Czy_aktywna = 1) AND (Czy_izba_przyjec = 0)"></asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlDataOddzial2" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Oddzialu, Nazwa FROM Oddzialy WHERE (Czy_aktywna = 1) AND (Czy_izba_przyjec = 0)"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataRozpoznanie" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Procedury, NrKatSzczegolowe + ' -  ' + NazwaKatSzczegolowe AS DANE FROM Procedury"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataRozpoznanie" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_KodChoroby, KodChoroby + ' ' + NazwaChoroby AS DANE FROM KodChoroby"></asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="SqlDataProcedura" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Procedury, NrKatSzczegolowe + ' -  ' + NazwaKatSzczegolowe AS DANE FROM Procedury"></asp:SqlDataSource>
 
     </form>
     <p>

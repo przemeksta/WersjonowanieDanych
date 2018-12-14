@@ -11,11 +11,6 @@ namespace WersjonowanieDanych
 {
     public partial class LogIN : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
         protected void ButtonLogin_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
@@ -35,7 +30,7 @@ namespace WersjonowanieDanych
                 {
                     Session["New"] = TextBoxUzytkownik.Text;
                     Response.Write("Hasło jest OK!");
-                    Response.Redirect("Menu.aspx");
+                    Response.Redirect("Menu.aspx");// tu jest bład watku
                 }
                 else
                 {

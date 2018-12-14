@@ -94,13 +94,13 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelIDIzba;
         
         /// <summary>
-        /// Kontrolka DropDownOddzial.
+        /// Kontrolka DropDownOddzial1.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownOddzial;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownOddzial1;
         
         /// <summary>
         /// Kontrolka LabelIDOddzial.
@@ -130,6 +130,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelIDOddzial2;
         
         /// <summary>
+        /// Kontrolka DropDownRozpoznanie1.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownRozpoznanie1;
+        
+        /// <summary>
         /// Kontrolka LabelIDRozpoznanie.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelIDRozpoznanie;
         
         /// <summary>
+        /// Kontrolka DropDownRozpoznanie2.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownRozpoznanie2;
+        
+        /// <summary>
         /// Kontrolka LabelIDRozpoznanie2.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,42 @@ namespace WersjonowanieDanych {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelIDRozpoznanie2;
+        
+        /// <summary>
+        /// Kontrolka DropDownProcedura1.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownProcedura1;
+        
+        /// <summary>
+        /// Kontrolka LabelIDProcedura.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelIDProcedura;
+        
+        /// <summary>
+        /// Kontrolka DropDownProcedura2.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownProcedura2;
+        
+        /// <summary>
+        /// Kontrolka LabelIDProcedura2.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelIDProcedura2;
         
         /// <summary>
         /// Kontrolka Button1.
@@ -184,15 +238,6 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataOddzial;
         
         /// <summary>
-        /// Kontrolka SqlDataOddzial2.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataOddzial2;
-        
-        /// <summary>
         /// Kontrolka SqlDataRozpoznanie.
         /// </summary>
         /// <remarks>
@@ -200,5 +245,14 @@ namespace WersjonowanieDanych {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataRozpoznanie;
+        
+        /// <summary>
+        /// Kontrolka SqlDataProcedura.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataProcedura;
     }
 }
