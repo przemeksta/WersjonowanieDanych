@@ -90,6 +90,36 @@
         .auto-style38 {
             color: #FF0000;
         }
+        .auto-style39 {
+            width: 146px;
+            font-size: large;
+        }
+        .auto-style40 {
+            width: 146px;
+            height: 26px;
+        }
+        .auto-style41 {
+            height: 23px;
+            width: 146px;
+        }
+        .auto-style42 {
+            width: 146px;
+        }
+        .auto-style45 {
+            width: 172px;
+            font-size: large;
+        }
+        .auto-style46 {
+            width: 172px;
+            height: 26px;
+        }
+        .auto-style47 {
+            height: 23px;
+            width: 172px;
+        }
+        .auto-style48 {
+            width: 172px;
+        }
     </style>
 </head>
 <body>
@@ -107,6 +137,8 @@
             <tr>
                 <td class="auto-style32"></td>
                 <td class="auto-style7"></td>
+                <td class="auto-style47">&nbsp;</td>
+                <td class="auto-style41">&nbsp;</td>
                 <td class="auto-style35"></td>
                 <td class="auto-style15"></td>
                 <td class="auto-style23"></td>
@@ -118,6 +150,8 @@
                     <asp:HyperLink ID="HyperLinkListaMenu" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
                 </td>
                 <td class="auto-style5"></td>
+                <td class="auto-style48">&nbsp;</td>
+                <td class="auto-style42">&nbsp;</td>
                 <td class="auto-style36"></td>
                 <td class="auto-style14"></td>
                 <td class="auto-style21"></td>
@@ -128,18 +162,22 @@
                 <td class="auto-style32">
                     <asp:HyperLink ID="HyperLinkListaPacv" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
                 </td>
-                <td class="auto-style5">&nbsp;</td>
-                <td class="auto-style36">&nbsp;</td>
-                <td class="auto-style14">&nbsp;</td>
-                <td class="auto-style21">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style7"></td>
+                <td class="auto-style47">&nbsp;</td>
+                <td class="auto-style41">&nbsp;</td>
+                <td class="auto-style35"></td>
+                <td class="auto-style15"></td>
+                <td class="auto-style23"></td>
+                <td class="auto-style6"></td>
+                <td class="auto-style6"></td>
             </tr>
             <tr>
                 <td class="auto-style32">
                     <asp:HyperLink ID="HyperLinkDodaniePacjenta" runat="server" NavigateUrl="~/NowyPacjent.aspx">Dodanie pacjenta</asp:HyperLink>
                 </td>
                 <td class="auto-style5">&nbsp;</td>
+                <td class="auto-style48">&nbsp;</td>
+                <td class="auto-style42">&nbsp;</td>
                 <td class="auto-style36">&nbsp;</td>
                 <td class="auto-style14">&nbsp;</td>
                 <td class="auto-style21">&nbsp;</td>
@@ -149,10 +187,10 @@
             <tr>
                 <td class="auto-style31">&nbsp;</td>
                 <td class="auto-style9"><strong>Tworzenie histori choroby</strong></td>
+                <td class="auto-style45"><strong>Data pobytu od</strong></td>
+                <td class="auto-style39"><strong>Data pobytu do</strong></td>
                 <td class="auto-style36">&nbsp;</td>
                 <td class="auto-style14">&nbsp;</td>
-                <td class="auto-style21">Data pobytu od</td>
-                <td class="auto-style14">Data pobytu do</td>
                 <td class="auto-style14">&nbsp;</td>
             </tr>
             <tr>
@@ -161,6 +199,10 @@
                     <asp:DropDownList ID="DropDownPacjent" runat="server" DataSourceID="SqlDataPacjent" DataTextField="Dane" DataValueField="ID_Pacjenta" Width="215px">
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style46">
+                    &nbsp;</td>
+                <td class="auto-style40">
+                    &nbsp;</td>
                 <td class="auto-style12"><strong>Id pacjenta</strong></td>
                 <td class="auto-style19">
                     <asp:Label ID="LabelIDPacjent" runat="server" CssClass="auto-style38"></asp:Label>
@@ -175,6 +217,10 @@
                     <asp:DropDownList ID="DropDownIzba" runat="server" DataSourceID="SqlDataIzba" DataTextField="Nazwa" DataValueField="ID_Oddzialu" Width="215px">
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style47">
+                    &nbsp;</td>
+                <td class="auto-style41">
+                    &nbsp;</td>
                 <td class="auto-style17"><strong>Id izba</strong></td>
                 <td class="auto-style15">
                     <asp:Label ID="LabelIDIzba" runat="server" CssClass="auto-style38"></asp:Label>
@@ -189,6 +235,10 @@
                     <asp:DropDownList ID="DropDownOddzial1" runat="server" DataSourceID="SqlDataOddzial" DataTextField="Nazwa" DataValueField="ID_Oddzialu" Width="215px">
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style47">
+                    &nbsp;</td>
+                <td class="auto-style41">
+                    &nbsp;</td>
                 <td class="auto-style17"><strong>Id oddział</strong></td>
                 <td class="auto-style15">
                     <asp:Label ID="LabelIDOddzial" runat="server" CssClass="auto-style38"></asp:Label>
@@ -203,6 +253,10 @@
                     <asp:DropDownList ID="DropDownOddzial2" runat="server" DataSourceID="SqlDataOddzial" DataTextField="Nazwa" DataValueField="ID_Oddzialu" Width="215px">
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style47">
+                    &nbsp;</td>
+                <td class="auto-style41">
+                    &nbsp;</td>
                 <td class="auto-style17"><strong>Id oddział 2</strong></td>
                 <td class="auto-style15">
                     <asp:Label ID="LabelIDOddzial2" runat="server" CssClass="auto-style38"></asp:Label>
@@ -217,6 +271,10 @@
                     <asp:DropDownList ID="DropDownRozpoznanie1" runat="server" DataSourceID="SqlDataRozpoznanie" DataTextField="DANE" DataValueField="ID_KodChoroby" Width="300px">
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style48">
+                    &nbsp;</td>
+                <td class="auto-style42">
+                    &nbsp;</td>
                 <td class="auto-style17"><strong>Id rozpoznania</strong></td>
                 <td class="auto-style15">
                     <asp:Label ID="LabelIDRozpoznanie" runat="server" CssClass="auto-style38"></asp:Label>
@@ -231,6 +289,10 @@
                     <asp:DropDownList ID="DropDownRozpoznanie2" runat="server" DataSourceID="SqlDataRozpoznanie" DataTextField="DANE" DataValueField="ID_KodChoroby" Width="300px">
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style47">
+                    &nbsp;</td>
+                <td class="auto-style41">
+                    &nbsp;</td>
                 <td class="auto-style17"><strong>Id rozpozania 2</strong></td>
                 <td class="auto-style15">
                     <asp:Label ID="LabelIDRozpoznanie2" runat="server" CssClass="auto-style38"></asp:Label>
@@ -245,6 +307,10 @@
                     <asp:DropDownList ID="DropDownProcedura1" runat="server" DataSourceID="SqlDataProcedura" DataTextField="DANE" DataValueField="ID_Procedury" Width="300px">
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style47">
+                    &nbsp;</td>
+                <td class="auto-style41">
+                    &nbsp;</td>
                 <td class="auto-style17"><strong>Id procedury</strong></td>
                 <td class="auto-style15">
                     <asp:Label ID="LabelIDProcedura" runat="server" CssClass="auto-style38"></asp:Label>
@@ -259,6 +325,10 @@
                     <asp:DropDownList ID="DropDownProcedura2" runat="server" DataSourceID="SqlDataProcedura" DataTextField="DANE" DataValueField="ID_Procedury" Width="300px">
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style47">
+                    &nbsp;</td>
+                <td class="auto-style41">
+                    &nbsp;</td>
                 <td class="auto-style17"><strong>Id procedury 2</strong></td>
                 <td class="auto-style15">
                     <asp:Label ID="LabelIDProcedura2" runat="server" CssClass="auto-style38"></asp:Label>
@@ -270,6 +340,8 @@
             <tr>
                 <td class="auto-style32">&nbsp;</td>
                 <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style47">&nbsp;</td>
+                <td class="auto-style41">&nbsp;</td>
                 <td class="auto-style35">&nbsp;</td>
                 <td class="auto-style15">&nbsp;</td>
                 <td class="auto-style23">&nbsp;</td>
@@ -279,6 +351,8 @@
             <tr>
                 <td class="auto-style32">&nbsp;</td>
                 <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style47">&nbsp;</td>
+                <td class="auto-style41">&nbsp;</td>
                 <td class="auto-style35">&nbsp;</td>
                 <td class="auto-style15">&nbsp;</td>
                 <td class="auto-style23">&nbsp;</td>
@@ -288,6 +362,8 @@
             <tr>
                 <td class="auto-style32">&nbsp;</td>
                 <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style47">&nbsp;</td>
+                <td class="auto-style41">&nbsp;</td>
                 <td class="auto-style35">&nbsp;</td>
                 <td class="auto-style15">&nbsp;</td>
                 <td class="auto-style23">&nbsp;</td>
@@ -301,6 +377,27 @@
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Pobierz dane" Width="213px" CssClass="auto-style26" />
                     </strong>
                 </td>
+                <td class="auto-style47">
+                    &nbsp;</td>
+                <td class="auto-style41">
+                    &nbsp;</td>
+                <td class="auto-style35">&nbsp;</td>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style32">&nbsp;</td>
+                <td class="auto-style7">
+                    <strong>
+                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Pobierz dane" Width="213px" CssClass="auto-style26" />
+                    </strong>
+                </td>
+                <td class="auto-style47">
+                    &nbsp;</td>
+                <td class="auto-style41">
+                    &nbsp;</td>
                 <td class="auto-style35">&nbsp;</td>
                 <td class="auto-style15">&nbsp;</td>
                 <td class="auto-style23">&nbsp;</td>

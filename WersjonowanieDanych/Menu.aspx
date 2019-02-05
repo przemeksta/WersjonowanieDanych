@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="WersjonowanieDanych.Menu" %>
 
+<!--          GOTOWY           -->
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

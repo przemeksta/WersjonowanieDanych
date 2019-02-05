@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace WersjonowanieDanych
 {
@@ -73,5 +74,11 @@ namespace WersjonowanieDanych
             }
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = new DataSet();
+            dataSet.ReadXml("c:/szblon/test.xml");
+            dataSet.WriteXml("c:/szblon/test2.xml");
+        }
     }
 }

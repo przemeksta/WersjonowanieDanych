@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NowyUzytkownik.aspx.cs" Inherits="WersjonowanieDanych.NowyUzytkownik" %>
 
+<!--          GOTOWY           -->
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -75,7 +77,7 @@
             </tr>
             <tr>
                 <td class="auto-style3">
-                    <asp:HyperLink ID="HyperLinkListaNowyUzytkownik" runat="server" NavigateUrl="~/NowyUzytkownik.aspx">Dodanie użytkowników</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLinkListaNowyUzytkownik" runat="server" NavigateUrl="~/ListaUzytkownikow.aspx">Lista użytkonikow</asp:HyperLink>
                 </td>
                 <td class="auto-style25">&nbsp;</td>
                 <td class="auto-style27">&nbsp;</td>

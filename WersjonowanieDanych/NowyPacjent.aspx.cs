@@ -22,7 +22,7 @@ namespace WersjonowanieDanych
         {
             if (Session["New"] != null)
             {
-                LabelWitam.Text += Session["New"].ToString();
+                LabelWitam.Text = Session["New"].ToString();
 
                 // pobiera ilosc wierszy do losowania
                 imieCountK = PobierzWartoscSQL("count(*)", "ViewImionaK");

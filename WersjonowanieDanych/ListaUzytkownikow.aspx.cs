@@ -13,7 +13,7 @@ namespace WersjonowanieDanych
         {
             if (Session["New"] != null)
             {
-                LabelWitam.Text += Session["New"].ToString();
+                LabelWitam.Text = Session["New"].ToString();
             }
             else
                 Response.Redirect("LogIN.aspx");
