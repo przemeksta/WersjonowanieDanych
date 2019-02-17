@@ -76,7 +76,7 @@
             </tr>
             <tr>
                 <td class="auto-style3">
-                    <asp:HyperLink ID="HyperLinkHistoriaChoroby" runat="server" NavigateUrl="~/HistoriaChoroby.aspx">Historia Choroby</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLinkHistoriaChoroby" runat="server" NavigateUrl="~/NowaHistoriaChoroby.aspx">Dodanie Historii Choroby</asp:HyperLink>
                 </td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>

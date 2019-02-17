@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HistoriaChoroby.aspx.cs" Inherits="WersjonowanieDanych.HistoriaChoroby" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NowaHistoriaChoroby.aspx.cs" Inherits="WersjonowanieDanych.HistoriaChoroby" %>
 
 <!DOCTYPE html>
 
@@ -410,8 +410,8 @@
         <asp:SqlDataSource ID="SqlDataPacjent" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Pacjenta, Imie + ' ' + Nazwisko AS Dane FROM Pacjenci"></asp:SqlDataSource>
 
        
-        <asp:SqlDataSource ID="SqlDataIzba" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Oddzialu, Nazwa FROM Oddzialy WHERE (Czy_izba_przyjec = 1) AND (Czy_aktywna = 1)"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataOddzial" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Oddzialu, Nazwa FROM Oddzialy WHERE (Czy_aktywna = 1) AND (Czy_izba_przyjec = 0)"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataIzba" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Oddzialu, Nazwa FROM Szpital WHERE (Czy_izba_przyjec = 1) AND (Czy_aktywna = 1) AND (Czy_glowny = 0)"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataOddzial" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_Oddzialu, Nazwa FROM Szpital WHERE (Czy_aktywna = 1) AND (Czy_izba_przyjec = 0) AND (Czy_glowny = 0)"></asp:SqlDataSource>
 
         <asp:SqlDataSource ID="SqlDataRozpoznanie" runat="server" ConnectionString="<%$ ConnectionStrings:SLOWNIKConnectionString %>" SelectCommand="SELECT ID_KodChoroby, KodChoroby + ' ' + NazwaChoroby AS DANE FROM KodChoroby"></asp:SqlDataSource>
 

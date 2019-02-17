@@ -79,7 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HistoriaChoroby.aspx" />
+    <Content Include="NowaHistoriaChoroby.aspx" />
     <Content Include="ListaDokumntow.aspx" />
     <Content Include="ListaPacjentow.aspx" />
     <Content Include="ListaUzytkownikow.aspx" />
@@ -92,12 +92,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HistoriaChoroby.aspx.cs">
-      <DependentUpon>HistoriaChoroby.aspx</DependentUpon>
+    <Compile Include="NowaHistoriaChoroby.aspx.cs">
+      <DependentUpon>NowaHistoriaChoroby.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HistoriaChoroby.aspx.designer.cs">
-      <DependentUpon>HistoriaChoroby.aspx</DependentUpon>
+    <Compile Include="NowaHistoriaChoroby.aspx.designer.cs">
+      <DependentUpon>NowaHistoriaChoroby.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListaDokumntow.aspx.cs">
       <DependentUpon>ListaDokumntow.aspx</DependentUpon>

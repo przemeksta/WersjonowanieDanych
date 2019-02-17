@@ -18,6 +18,13 @@ namespace WersjonowanieDanych
         string nazwiskoCountM;
         string adresCount;
 
+        // pola do inserta
+        string poleImie = "0";
+        string poleNazwisko = "0";
+        string poleAdrKod = "0";
+        string poleAdrMiasto = "0";
+        string poleAdrUlica = "0";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["New"] != null)
@@ -43,13 +50,34 @@ namespace WersjonowanieDanych
 
         protected void ButtonDodaniePac_Click(object sender, EventArgs e)
         {
-            // pola do inserta
-            string poleImie = "0";
-            string poleNazwisko = "0";
-            string poleAdrKod = "0";
-            string poleAdrMiasto = "0";
-            string poleAdrUlica = "0";
+            DodaniePacjenta();
+        }
+        protected void ButtonDodaniePacGrupa_Click(object sender, EventArgs e)
+        {
+            int liczbaPac = 0;
+            try
+            {
+                liczbaPac = Convert.ToInt32(TextBoxIloscPac.Text);
+                if (liczbaPac >0)
+                {
+                    for(int i=0; i<liczbaPac;i++)
+                    {
+                        DodaniePacjenta();
+                    }
+                }    
+                else
+                {
+                    Response.Write("Liczba równa 0");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("error: " + ex.ToString());
+            }
+        }
 
+        protected void DodaniePacjenta()
+        {
             // losujemy pleć
             if (Losowanie(3) == 1)
                 plec = "K";
@@ -83,7 +111,7 @@ namespace WersjonowanieDanych
             LabelAdresMiasto.Text = poleAdrMiasto;
             poleAdrUlica = PobierzWartoscSQL("Ulica", "ViewAdresy", "pozycja = " + adresTym);
             LabelAdresUlica.Text = poleAdrUlica;
-            
+
             try
             {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
@@ -108,48 +136,6 @@ namespace WersjonowanieDanych
             {
                 Response.Write("error: " + ex.ToString());
             }
-            /*
-            try
-            {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString);
-                conn.Open();
-
-                string sprawdzUzytkownika = "select count(*) from Uzytkownicy where Nazwa='" + TextBoxUzytkownik.Text + "'";
-                SqlCommand com = new SqlCommand(sprawdzUzytkownika, conn);
-                int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
-                if (temp == 1)
-                {
-                    Response.Write("Użytkownik instanieje");
-                    conn.Close();
-                }
-                else
-                {
-                    string insertQuery = "insert into Uzytkownicy (Nazwa, Haslo) values (@uzytkownik, @haslo)";
-                    SqlCommand com2 = new SqlCommand(insertQuery, conn);
-
-                    com.Parameters.AddWithValue("@uzytkownik", TextBoxUzytkownik.Text);
-                    com.Parameters.AddWithValue("@haslo", TextBoxHaslo.Text);
-
-                    com.ExecuteNonQuery();
-                    Response.Redirect("lista.aspx");
-                    Response.Write("Rejestracja udana");
-                    conn.Close();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Response.Write("error: " + ex.ToString());
-            }
-                           //Response.Write(com);
-                //Response.Write(com.BeginExecuteXmlReader());
-
-                //SqlDataReader myReader = com.ExecuteReader();
-
-                /*   while (myReader.Read())
-                   {
-                       Response.Write(myReader.GetString(0) + " \t" + myReader.GetInt64(1).ToString());
-                   }*/
         }
 
         protected int Losowanie(int koniec)
@@ -195,5 +181,6 @@ namespace WersjonowanieDanych
             }
             return wynik;
         }
+
     }
 }
