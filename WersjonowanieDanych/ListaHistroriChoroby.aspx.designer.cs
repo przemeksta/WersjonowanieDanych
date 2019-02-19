@@ -10,7 +10,7 @@
 namespace WersjonowanieDanych {
     
     
-    public partial class HistoriaChoroby {
+    public partial class WebForm1 {
         
         /// <summary>
         /// Kontrolka form1.
@@ -40,219 +40,201 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaMenu;
         
         /// <summary>
-        /// Kontrolka HyperLinkListaHistoriaChoroby.
+        /// Kontrolka HyperLinkNowaHistoriaChoroby.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaHistoriaChoroby;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkNowaHistoriaChoroby;
         
         /// <summary>
-        /// Kontrolka DropDownPacjent.
+        /// Kontrolka DropDownListPacjent.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownPacjent;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListPacjent;
         
         /// <summary>
-        /// Kontrolka LabelIDPacjent.
+        /// Kontrolka LabelID_Hospitalizacji.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIDPacjent;
+        protected global::System.Web.UI.WebControls.Label LabelID_Hospitalizacji;
         
         /// <summary>
-        /// Kontrolka DropDownIzba.
+        /// Kontrolka LabelKod_choroby.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownIzba;
+        protected global::System.Web.UI.WebControls.Label LabelKod_choroby;
         
         /// <summary>
-        /// Kontrolka LabelIDIzba.
+        /// Kontrolka LabelPacjebt_adres.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIDIzba;
+        protected global::System.Web.UI.WebControls.Label LabelPacjebt_adres;
         
         /// <summary>
-        /// Kontrolka DropDownOddzial1.
+        /// Kontrolka LabelKod_choroby2.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownOddzial1;
+        protected global::System.Web.UI.WebControls.Label LabelKod_choroby2;
         
         /// <summary>
-        /// Kontrolka LabelIDOddzial.
+        /// Kontrolka LabelIzba_Przyjec.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIDOddzial;
+        protected global::System.Web.UI.WebControls.Label LabelIzba_Przyjec;
         
         /// <summary>
-        /// Kontrolka DropDownOddzial2.
+        /// Kontrolka LabelProcedura1.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownOddzial2;
+        protected global::System.Web.UI.WebControls.Label LabelProcedura1;
         
         /// <summary>
-        /// Kontrolka LabelIDOddzial2.
+        /// Kontrolka LabelOddzial.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIDOddzial2;
+        protected global::System.Web.UI.WebControls.Label LabelOddzial;
         
         /// <summary>
-        /// Kontrolka DropDownRozpoznanie1.
+        /// Kontrolka LabelProcedura2.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownRozpoznanie1;
+        protected global::System.Web.UI.WebControls.Label LabelProcedura2;
         
         /// <summary>
-        /// Kontrolka LabelIDRozpoznanie.
+        /// Kontrolka LabelOddzial2.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIDRozpoznanie;
+        protected global::System.Web.UI.WebControls.Label LabelOddzial2;
         
         /// <summary>
-        /// Kontrolka DropDownRozpoznanie2.
+        /// Kontrolka LabelProcedura3.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownRozpoznanie2;
+        protected global::System.Web.UI.WebControls.Label LabelProcedura3;
         
         /// <summary>
-        /// Kontrolka LabelIDRozpoznanie2.
+        /// Kontrolka LabelData_od.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIDRozpoznanie2;
+        protected global::System.Web.UI.WebControls.Label LabelData_od;
         
         /// <summary>
-        /// Kontrolka DropDownProcedura1.
+        /// Kontrolka LabelProcedura4.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownProcedura1;
+        protected global::System.Web.UI.WebControls.Label LabelProcedura4;
         
         /// <summary>
-        /// Kontrolka LabelIDProcedura.
+        /// Kontrolka LabelData_do.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIDProcedura;
+        protected global::System.Web.UI.WebControls.Label LabelData_do;
         
         /// <summary>
-        /// Kontrolka DropDownProcedura2.
+        /// Kontrolka LabelProcedura5.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownProcedura2;
+        protected global::System.Web.UI.WebControls.Label LabelProcedura5;
         
         /// <summary>
-        /// Kontrolka LabelIDProcedura2.
+        /// Kontrolka LabelEpikryza.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelIDProcedura2;
+        protected global::System.Web.UI.WebControls.Label LabelEpikryza;
         
         /// <summary>
-        /// Kontrolka Button1.
+        /// Kontrolka LabelZalecenia_lekarza.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label LabelZalecenia_lekarza;
         
         /// <summary>
-        /// Kontrolka Button2.
+        /// Kontrolka LabelData_autotyzacji.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Label LabelData_autotyzacji;
         
         /// <summary>
-        /// Kontrolka SqlDataPacjent.
+        /// Kontrolka LabelUzytkownik_autoryzacji.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataPacjent;
+        protected global::System.Web.UI.WebControls.Label LabelUzytkownik_autoryzacji;
         
         /// <summary>
-        /// Kontrolka SqlDataIzba.
+        /// Kontrolka ButtonSzukaj.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataIzba;
+        protected global::System.Web.UI.WebControls.Button ButtonSzukaj;
         
         /// <summary>
-        /// Kontrolka SqlDataOddzial.
+        /// Kontrolka SqlDataSource1.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataOddzial;
-        
-        /// <summary>
-        /// Kontrolka SqlDataRozpoznanie.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataRozpoznanie;
-        
-        /// <summary>
-        /// Kontrolka SqlDataProcedura.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataProcedura;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

@@ -52,6 +52,7 @@ namespace WersjonowanieDanych
         {
             DodaniePacjenta();
         }
+
         protected void ButtonDodaniePacGrupa_Click(object sender, EventArgs e)
         {
             int liczbaPac = 0;

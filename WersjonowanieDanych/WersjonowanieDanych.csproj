@@ -90,6 +90,7 @@
     <Content Include="NowyUzytkownik.aspx" />
     <Content Include="Style.css" />
     <Content Include="Web.config" />
+    <Content Include="ListaHistroriChoroby.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NowaHistoriaChoroby.aspx.cs">
@@ -156,6 +157,13 @@
       <DependentUpon>NowyUzytkownik.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ListaHistroriChoroby.aspx.cs">
+      <DependentUpon>ListaHistroriChoroby.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaHistroriChoroby.aspx.designer.cs">
+      <DependentUpon>ListaHistroriChoroby.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />

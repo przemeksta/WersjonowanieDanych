@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Menu</title>
+    <title>HistoriaChoroby</title>
     <link href="Style.css" rel="stylesheet" />
     <style type="text/css">
         .auto-style5 {
@@ -160,7 +160,7 @@
             </tr>
             <tr>
                 <td class="auto-style32">
-                    <asp:HyperLink ID="HyperLinkListaPacv" runat="server" NavigateUrl="~/ListaPacjentow.aspx">Lista pacjentów</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLinkListaHistoriaChoroby" runat="server" NavigateUrl="~/ListaHistroriChoroby.aspx">Lista Historii Choroby</asp:HyperLink>
                 </td>
                 <td class="auto-style7"></td>
                 <td class="auto-style47">&nbsp;</td>
@@ -173,8 +173,7 @@
             </tr>
             <tr>
                 <td class="auto-style32">
-                    <asp:HyperLink ID="HyperLinkDodaniePacjenta" runat="server" NavigateUrl="~/NowyPacjent.aspx">Dodanie pacjenta</asp:HyperLink>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style5">&nbsp;</td>
                 <td class="auto-style48">&nbsp;</td>
                 <td class="auto-style42">&nbsp;</td>

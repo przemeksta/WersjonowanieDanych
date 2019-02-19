@@ -30,12 +30,13 @@ namespace WersjonowanieDanych
                 {
                     Session["New"] = TextBoxUzytkownik.Text;
                     Response.Write("Hasło jest OK!");
-                    Response.Redirect("Menu.aspx");// tu jest bład watku
+                    Response.Redirect("Menu.aspx", false);
                 }
                 else
                 {
                     Response.Write("Błędne hasło! Proszę wprowadzić hasło jeszcze raz.");
                 }
+                conn.Close();
             }
             else
             {

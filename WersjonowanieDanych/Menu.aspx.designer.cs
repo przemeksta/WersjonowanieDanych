@@ -40,15 +40,6 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaMenu;
         
         /// <summary>
-        /// Kontrolka HyperLinkListaUzytkownikow.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaUzytkownikow;
-        
-        /// <summary>
         /// Kontrolka HyperLinkListaNowyUzytkownik.
         /// </summary>
         /// <remarks>
@@ -58,13 +49,13 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaNowyUzytkownik;
         
         /// <summary>
-        /// Kontrolka HyperLinkListaPacv.
+        /// Kontrolka HyperLinkListaUzytkownikow.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaPacv;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaUzytkownikow;
         
         /// <summary>
         /// Kontrolka HyperLinkDodaniePacjenta.
@@ -76,13 +67,31 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkDodaniePacjenta;
         
         /// <summary>
-        /// Kontrolka HyperLinkHistoriaChoroby.
+        /// Kontrolka HyperLinkListaPacv.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkHistoriaChoroby;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaPacv;
+        
+        /// <summary>
+        /// Kontrolka HyperLinkNowaHistoriaChoroby.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkNowaHistoriaChoroby;
+        
+        /// <summary>
+        /// Kontrolka HyperLinkListaHistoriaChoroby.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkListaHistoriaChoroby;
         
         /// <summary>
         /// Kontrolka HyperLinkDodanieDokumntu0.
