@@ -63,12 +63,13 @@
                 </table>
         </div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BAZA1ConnectionString %>" ProviderName="<%$ ConnectionStrings:BAZA1ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;TEST&quot;"></asp:SqlDataSource>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_TEST" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource2">
             <Columns>
-                <asp:BoundField DataField="ID_TEST" HeaderText="ID_TEST" ReadOnly="True" SortExpression="ID_TEST" />
-                <asp:BoundField DataField="NAZWA_TEST" HeaderText="NAZWA_TEST" SortExpression="NAZWA_TEST" />
+                <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
+                <asp:BoundField DataField="DANE" HeaderText="DANE" SortExpression="DANE" />
             </Columns>
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionStringDokMed %>" ProviderName="<%$ ConnectionStrings:ConnectionStringDokMed.ProviderName %>" SelectCommand="SELECT * FROM &quot;TESTXML&quot;" OnSelecting="SqlDataSource2_Selecting1"></asp:SqlDataSource>
     </form>
 </body>
 </html>

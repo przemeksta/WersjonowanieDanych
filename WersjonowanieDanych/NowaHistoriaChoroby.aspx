@@ -394,6 +394,24 @@
                     </strong>
                 </td>
                 <td class="auto-style47">
+                    <asp:Label ID="LabelXML" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style41">
+                    &nbsp;</td>
+                <td class="auto-style35">&nbsp;</td>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style32">&nbsp;</td>
+                <td class="auto-style7">
+                    <strong>
+                    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Pobierz dane" Width="213px" CssClass="auto-style26" />
+                    </strong>
+                </td>
+                <td class="auto-style47">
                     &nbsp;</td>
                 <td class="auto-style41">
                     &nbsp;</td>

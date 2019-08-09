@@ -29,5 +29,10 @@ namespace WersjonowanieDanych
         {
 
         }
+
+        protected void SqlDataSource2_Selecting1(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
     }
 }

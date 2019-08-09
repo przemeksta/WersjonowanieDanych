@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extPL="http://www.csioz.gov.pl/xsd/extPL/r1" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ClinicalDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="typeId">
+          <xs:complexType>
+            <xs:attribute name="extension" type="xs:string" use="required" />
+            <xs:attribute name="root" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="templateId">
+          <xs:complexType>
+            <xs:attribute name="root" type="xs:string" use="required" />
+            <xs:attribute name="extension" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="id">
+          <xs:complexType>
+            <xs:attribute name="extension" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="root" type="xs:string" use="required" />
+            <xs:attribute name="displayable" type="xs:boolean" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="code">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="translation">
+                <xs:complexType>
+                  <xs:attribute name="code" type="xs:decimal" use="required" />
+                  <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                  <xs:attribute name="codeSystemName" type="xs:string" use="required" />
+                  <xs:attribute name="displayName" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="code" type="xs:string" use="required" />
+            <xs:attribute name="codeSystem" type="xs:string" use="required" />
+            <xs:attribute name="codeSystemName" type="xs:string" use="required" />
+            <xs:attribute name="displayName" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="effectiveTime">
+          <xs:complexType>
+            <xs:attribute name="value" type="xs:unsignedInt" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="confidentialityCode">
+          <xs:complexType>
+            <xs:attribute name="code" type="xs:string" use="required" />
+            <xs:attribute name="codeSystem" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="languageCode">
+          <xs:complexType>
+            <xs:attribute name="code" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="setId">
+          <xs:complexType>
+            <xs:attribute name="extension" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="root" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="versionNumber">
+          <xs:complexType>
+            <xs:attribute name="value" type="xs:unsignedByte" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="recordTarget">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="templateId">
+                <xs:complexType>
+                  <xs:attribute name="root" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="patientRole">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="id">
+                      <xs:complexType>
+                        <xs:attribute name="extension" type="xs:unsignedLong" use="required" />
+                        <xs:attribute name="root" type="xs:string" use="required" />
+                        <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="addr">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="city" type="xs:string" />
+                          <xs:element name="postalCode" type="xs:string" />
+                          <xs:element name="streetName" type="xs:string" />
+                          <xs:element name="houseNumber" type="xs:unsignedByte" />
+                          <xs:element name="unitID" type="xs:unsignedByte" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="patient">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="name">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="given" type="xs:string" />
+                                <xs:element name="family" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="administrativeGenderCode">
+                            <xs:complexType>
+                              <xs:attribute name="code" type="xs:string" use="required" />
+                              <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="birthTime">
+                            <xs:complexType>
+                              <xs:attribute name="value" type="xs:unsignedInt" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="providerOrganization">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="templateId">
+                            <xs:complexType>
+                              <xs:attribute name="root" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="id">
+                            <xs:complexType>
+                              <xs:attribute name="extension" type="xs:unsignedShort" use="required" />
+                              <xs:attribute name="root" type="xs:string" use="required" />
+                              <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="classCode" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="author">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="templateId">
+                <xs:complexType>
+                  <xs:attribute name="root" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="functionCode">
+                <xs:complexType>
+                  <xs:attribute name="code" type="xs:string" use="required" />
+                  <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                  <xs:attribute name="displayName" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="time">
+                <xs:complexType>
+                  <xs:attribute name="value" type="xs:unsignedInt" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="assignedAuthor">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id">
+                      <xs:complexType>
+                        <xs:attribute name="extension" type="xs:unsignedInt" use="required" />
+                        <xs:attribute name="root" type="xs:string" use="required" />
+                        <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="assignedPerson">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="templateId">
+                            <xs:complexType>
+                              <xs:attribute name="root" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="name">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="prefix" type="xs:string" />
+                                <xs:element name="given" type="xs:string" />
+                                <xs:element name="family" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="representedOrganization">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="templateId">
+                            <xs:complexType>
+                              <xs:attribute name="root" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="id">
+                            <xs:complexType>
+                              <xs:attribute name="extension" type="xs:gYearMonth" use="required" />
+                              <xs:attribute name="root" type="xs:string" use="required" />
+                              <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="name" type="xs:string" />
+                          <xs:element name="telecom">
+                            <xs:complexType>
+                              <xs:attribute name="use" type="xs:string" use="required" />
+                              <xs:attribute name="value" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="addr">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="postalCode" type="xs:string" />
+                                <xs:element name="city" type="xs:string" />
+                                <xs:element name="streetName" type="xs:string" />
+                                <xs:element name="houseNumber" type="xs:unsignedByte" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="standardIndustryClassCode">
+                            <xs:complexType>
+                              <xs:attribute name="code" type="xs:unsignedShort" use="required" />
+                              <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                              <xs:attribute name="displayName" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="asOrganizationPartOf">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="wholeOrganization">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="id">
+                                        <xs:complexType>
+                                          <xs:attribute name="extension" type="xs:unsignedLong" use="required" />
+                                          <xs:attribute name="root" type="xs:string" use="required" />
+                                          <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="name" type="xs:string" />
+                                      <xs:element name="asOrganizationPartOf">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="wholeOrganization">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element maxOccurs="unbounded" name="id">
+                                                    <xs:complexType>
+                                                      <xs:attribute name="extension" type="xs:unsignedInt" use="required" />
+                                                      <xs:attribute name="root" type="xs:string" use="required" />
+                                                      <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="name" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="custodian">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="templateId">
+                <xs:complexType>
+                  <xs:attribute name="root" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="assignedCustodian">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="representedCustodianOrganization">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id">
+                            <xs:complexType>
+                              <xs:attribute name="extension" type="xs:unsignedShort" use="required" />
+                              <xs:attribute name="root" type="xs:string" use="required" />
+                              <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="legalAuthenticator">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="templateId">
+                <xs:complexType>
+                  <xs:attribute name="root" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="time">
+                <xs:complexType>
+                  <xs:attribute name="value" type="xs:unsignedInt" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="signatureCode">
+                <xs:complexType>
+                  <xs:attribute name="code" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="assignedEntity">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id">
+                      <xs:complexType>
+                        <xs:attribute name="extension" type="xs:unsignedInt" use="required" />
+                        <xs:attribute name="root" type="xs:string" use="required" />
+                        <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="componentOf">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="templateId">
+                <xs:complexType>
+                  <xs:attribute name="root" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="encompassingEncounter">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id">
+                      <xs:complexType>
+                        <xs:attribute name="extension" type="xs:unsignedInt" use="required" />
+                        <xs:attribute name="root" type="xs:string" use="required" />
+                        <xs:attribute name="displayable" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="code">
+                      <xs:complexType>
+                        <xs:attribute name="code" type="xs:unsignedShort" use="required" />
+                        <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                        <xs:attribute name="displayName" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="effectiveTime">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="low">
+                            <xs:complexType>
+                              <xs:attribute name="value" type="xs:unsignedInt" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="high">
+                            <xs:complexType>
+                              <xs:attribute name="value" type="xs:unsignedInt" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dischargeDispositionCode">
+                      <xs:complexType>
+                        <xs:attribute name="code" type="xs:unsignedByte" use="required" />
+                        <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                        <xs:attribute name="displayName" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="classCode" type="xs:string" use="required" />
+                  <xs:attribute name="moodCode" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="typeCode" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="component">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="templateId">
+                <xs:complexType>
+                  <xs:attribute name="root" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="structuredBody">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="component">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="section">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="templateId">
+                                  <xs:complexType>
+                                    <xs:attribute name="root" type="xs:string" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="code">
+                                  <xs:complexType>
+                                    <xs:attribute name="code" type="xs:string" use="required" />
+                                    <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                                    <xs:attribute name="codeSystemName" type="xs:string" use="required" />
+                                    <xs:attribute name="displayName" type="xs:string" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="title" type="xs:string" />
+                                <xs:element name="text">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" name="paragraph" type="xs:string" />
+                                      <xs:element minOccurs="0" name="table">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" name="thead">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="tr">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="th" type="xs:string" />
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="tbody">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element maxOccurs="unbounded" name="tr">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="td">
+                                                          <xs:complexType>
+                                                            <xs:simpleContent>
+                                                              <xs:extension base="xs:string">
+                                                                <xs:attribute name="colspan" type="xs:unsignedByte" use="optional" />
+                                                                <xs:attribute name="styleCode" type="xs:string" use="optional" />
+                                                              </xs:extension>
+                                                            </xs:simpleContent>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                      <xs:attribute name="ID" type="xs:string" use="required" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" name="list">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" name="caption" type="xs:string" />
+                                            <xs:element maxOccurs="unbounded" name="item">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute name="ID" type="xs:string" use="optional" />
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="entry">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" name="templateId">
+                                        <xs:complexType>
+                                          <xs:attribute name="root" type="xs:string" use="required" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" name="substanceAdministration">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="text">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="reference">
+                                                    <xs:complexType>
+                                                      <xs:attribute name="value" type="xs:string" use="required" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="consumable">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="manufacturedProduct">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="templateId">
+                                                          <xs:complexType>
+                                                            <xs:attribute name="root" type="xs:string" use="required" />
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element name="manufacturedLabeledDrug">
+                                                          <xs:complexType>
+                                                            <xs:sequence>
+                                                              <xs:element name="code">
+                                                                <xs:complexType>
+                                                                  <xs:attribute name="code" type="xs:unsignedInt" use="required" />
+                                                                  <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                                                                  <xs:attribute name="displayName" type="xs:string" use="required" />
+                                                                </xs:complexType>
+                                                              </xs:element>
+                                                            </xs:sequence>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="classCode" type="xs:string" use="required" />
+                                          <xs:attribute name="moodCode" type="xs:string" use="required" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" name="organizer">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="code">
+                                              <xs:complexType>
+                                                <xs:attribute name="code" type="xs:unsignedInt" use="required" />
+                                                <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                                                <xs:attribute name="codeSystemName" type="xs:string" use="required" />
+                                                <xs:attribute name="displayName" type="xs:string" use="required" />
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="statusCode">
+                                              <xs:complexType>
+                                                <xs:attribute name="code" type="xs:string" use="required" />
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="component">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="observation">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="code">
+                                                          <xs:complexType>
+                                                            <xs:attribute name="code" type="xs:string" use="required" />
+                                                            <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                                                            <xs:attribute name="codeSystemName" type="xs:string" use="required" />
+                                                            <xs:attribute name="displayName" type="xs:string" use="required" />
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element name="text">
+                                                          <xs:complexType>
+                                                            <xs:sequence>
+                                                              <xs:element name="reference">
+                                                                <xs:complexType>
+                                                                  <xs:attribute name="value" type="xs:string" use="required" />
+                                                                </xs:complexType>
+                                                              </xs:element>
+                                                            </xs:sequence>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                      <xs:attribute name="classCode" type="xs:string" use="required" />
+                                                      <xs:attribute name="moodCode" type="xs:string" use="required" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="classCode" type="xs:string" use="required" />
+                                          <xs:attribute name="moodCode" type="xs:string" use="required" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" name="encounter">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="templateId">
+                                              <xs:complexType>
+                                                <xs:attribute name="root" type="xs:string" use="required" />
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="code">
+                                              <xs:complexType>
+                                                <xs:attribute name="code" type="xs:unsignedShort" use="required" />
+                                                <xs:attribute name="codeSystem" type="xs:string" use="required" />
+                                                <xs:attribute name="displayName" type="xs:string" use="required" />
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="text">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="reference">
+                                                    <xs:complexType>
+                                                      <xs:attribute name="value" type="xs:string" use="required" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="effectiveTime">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="low">
+                                                    <xs:complexType>
+                                                      <xs:attribute name="value" type="xs:unsignedInt" use="required" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="high">
+                                                    <xs:complexType>
+                                                      <xs:attribute name="value" type="xs:unsignedInt" use="required" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="classCode" type="xs:string" use="required" />
+                                          <xs:attribute name="moodCode" type="xs:string" use="required" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="classCode" type="xs:string" use="required" />
+                  <xs:attribute name="moodCode" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="typeCode" type="xs:string" use="required" />
+            <xs:attribute name="contextConductionInd" type="xs:boolean" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

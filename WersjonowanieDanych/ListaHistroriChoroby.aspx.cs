@@ -64,6 +64,7 @@ namespace WersjonowanieDanych
                 // set to the console window.
 
                 SqlDataReader reader = com.ExecuteReader();
+
                 while (reader.Read())
                 {
                     //Response.Write(reader[0]);
@@ -84,6 +85,29 @@ namespace WersjonowanieDanych
                 }
 
                 reader.Close();
+
+                DataTable table = new DataTable();
+                try
+                {
+                    // SqlDataAdapter wypełnia DataSet/DataTable danymi zwrotnymi zapytania
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    using (da = new SqlDataAdapter(com))
+                    {
+                        da.Fill(table);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    com.Dispose();
+                    com = null;
+                }
+
+
+
                 conn.Close();
                 Response.Write("Sukces!!!");
             }

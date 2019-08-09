@@ -211,6 +211,24 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
+        /// Kontrolka LabelXML.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelXML;
+        
+        /// <summary>
+        /// Kontrolka Button3.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
+        
+        /// <summary>
         /// Kontrolka SqlDataPacjent.
         /// </summary>
         /// <remarks>
