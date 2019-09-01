@@ -166,6 +166,13 @@
     <Compile Include="ListaHistroriChoroby.aspx.designer.cs">
       <DependentUpon>ListaHistroriChoroby.aspx</DependentUpon>
     </Compile>
+    <Compile Include="XEL_author.cs" />
+    <Compile Include="XEL_ClinicalDocument.cs" />
+    <Compile Include="XEL_component.cs" />
+    <Compile Include="XEL_componentOf.cs" />
+    <Compile Include="XEL_custodian.cs" />
+    <Compile Include="XEL_legalAuthenticator.cs" />
+    <Compile Include="XEL_recordTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />
