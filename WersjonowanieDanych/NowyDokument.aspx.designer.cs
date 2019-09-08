@@ -31,6 +31,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Label LabelWitam;
         
         /// <summary>
+        /// Kontrolka TextBoxIloscDok.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxIloscDok;
+        
+        /// <summary>
         /// Kontrolka HyperLinkProgramGL.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,104 @@ namespace WersjonowanieDanych {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkProgramGL;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntTEST.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntTEST;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntTESTLosowy.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntTESTLosowy;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntTESTUpdate.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntTESTUpdate;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntCLOB.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntCLOB;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntCLOBLosowy.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntCLOBLosowy;
+        
+        /// <summary>
+        /// Kontrolka ButtonlosowanieCLOB.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonlosowanieCLOB;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntXMLtype.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntXMLtype;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntXMLtypeLosowy.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntXMLtypeLosowy;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongo.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongo;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongoLosowy.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongoLosowy;
+        
+        /// <summary>
+        /// Kontrolka Label1.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }
