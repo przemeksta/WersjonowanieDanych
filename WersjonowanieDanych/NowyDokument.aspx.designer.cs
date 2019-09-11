@@ -76,6 +76,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntTESTUpdate;
         
         /// <summary>
+        /// Kontrolka ButtonlosowanieCLOB.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonlosowanieCLOB;
+        
+        /// <summary>
         /// Kontrolka ButtonDodajDokumntCLOB.
         /// </summary>
         /// <remarks>
@@ -94,13 +103,13 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntCLOBLosowy;
         
         /// <summary>
-        /// Kontrolka ButtonlosowanieCLOB.
+        /// Kontrolka ButtonlosowanieXMLType.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonlosowanieCLOB;
+        protected global::System.Web.UI.WebControls.Button ButtonlosowanieXMLType;
         
         /// <summary>
         /// Kontrolka ButtonDodajDokumntXMLtype.

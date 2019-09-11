@@ -32,6 +32,5 @@ namespace WersjonowanieDanych
             else wersja = 10;
             return wersja;
         }
-
     }
 }

@@ -42,6 +42,7 @@
 
                     </td>
                     <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style7">Czas Operacji</td>
                     <td class="auto-style4">&nbsp;</td>
@@ -49,6 +50,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
+                        &nbsp;</td>
+                    <td class="auto-style5">
                         &nbsp;</td>
                     <td class="auto-style5">
                         <asp:TextBox ID="TextBoxIloscDok" runat="server" Width="212px">1</asp:TextBox>
@@ -63,6 +66,8 @@
                     <td class="auto-style3">
                         &nbsp;</td>
                     <td class="auto-style5">
+                        &nbsp;</td>
+                    <td class="auto-style5">
                         Dokumnt testowy</td>
                     <td class="auto-style6">
                         Dokument losowy</td>
@@ -75,6 +80,8 @@
                     <td class="auto-style3">
             <asp:HyperLink ID="HyperLinkProgramGL" runat="server" NavigateUrl="~/Menu.aspx">Menu</asp:HyperLink>
                     </td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
                     <td class="auto-style5">
                         <asp:Button ID="ButtonDodajDokumntTEST" runat="server" Font-Bold="True" OnClick="ButtonDodajDokumntTEST_Click1" Text="Dodaj Dokumnt TEST" Width="220px" />
                     </td>
@@ -93,6 +100,8 @@
                         &nbsp;</td>
                     <td class="auto-style5">
                         &nbsp;</td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
                     <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style7">&nbsp;</td>
                     <td class="auto-style4">&nbsp;</td>
@@ -102,14 +111,16 @@
                     <td class="auto-style3">
                         &nbsp;</td>
                     <td class="auto-style5">
+                        <asp:Button ID="ButtonlosowanieCLOB" runat="server" Font-Bold="True" OnClick="ButtonlosowanieCLOB_Click" Text="Losowanie CLOB" Width="220px" />
+                    </td>
+                    <td class="auto-style5">
                         <asp:Button ID="ButtonDodajDokumntCLOB" runat="server" Text="Dodaj Dokumnt CLOB" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntCLOB_Click" />
                     </td>
                     <td class="auto-style6">
                         <asp:Button ID="ButtonDodajDokumntCLOBLosowy" runat="server" Text="Dodaj Dokumnt CLOB Losowy" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntCLOBLosowy_Click" />
                     </td>
                     <td class="auto-style7">
-                        <asp:Button ID="ButtonlosowanieCLOB" runat="server" Font-Bold="True" OnClick="ButtonlosowanieCLOB_Click" Text="LosowanieCLOB" Width="220px" />
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style4">&nbsp;</td>
                 </tr>
@@ -117,10 +128,13 @@
                     <td class="auto-style3">
                         &nbsp;</td>
                     <td class="auto-style5">
-                        <asp:Button ID="ButtonDodajDokumntXMLtype" runat="server" Text="Dodaj Dokumnt XMLtype" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntCLOB_Click" />
+                        <asp:Button ID="ButtonlosowanieXMLType" runat="server" Font-Bold="True" OnClick="ButtonlosowanieXMLType_Click" Text="Losowanie XMLType" Width="220px" />
+                    </td>
+                    <td class="auto-style5">
+                        <asp:Button ID="ButtonDodajDokumntXMLtype" runat="server" Text="Dodaj Dokumnt XMLType" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntXMLtype_Click" />
                     </td>
                     <td class="auto-style6">
-                        <asp:Button ID="ButtonDodajDokumntXMLtypeLosowy" runat="server" Text="Dodaj Dokumnt XMLtype Losowy" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntCLOB_Click" />
+                        <asp:Button ID="ButtonDodajDokumntXMLtypeLosowy" runat="server" Text="Dodaj Dokumnt XMLType Losowy" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntCLOB_Click" />
                     </td>
                     <td class="auto-style7">&nbsp;</td>
                     <td class="auto-style4">&nbsp;</td>
@@ -128,6 +142,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
+                        &nbsp;</td>
+                    <td class="auto-style5">
                         &nbsp;</td>
                     <td class="auto-style5">
                         <asp:Button ID="ButtonDodajDokumntMongo" runat="server" Text="Dodaj Dokumnt Mongo" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntCLOB_Click" />
