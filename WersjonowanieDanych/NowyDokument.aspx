@@ -66,7 +66,7 @@
                     <td class="auto-style3">
                         &nbsp;</td>
                     <td class="auto-style5">
-                        &nbsp;</td>
+                        Schemat Wersjionowania</td>
                     <td class="auto-style5">
                         Dokumnt testowy</td>
                     <td class="auto-style6">

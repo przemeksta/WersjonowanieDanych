@@ -152,7 +152,7 @@ namespace WersjonowanieDanych
             );
 
             #endregion
-            // zapis xml do pliku
+            //zapis xml do pliku
             //xmlDocument.Save(@"C:/Pliki/KartaInformacyjna.xml");
 
             string queryStringSQL = "select * from HisCLOB where CzyImport = 0";
@@ -168,7 +168,6 @@ namespace WersjonowanieDanych
             int iloscRekordow = dataset.Tables["HisCLOB"].Rows.Count;
 
             int ilosc = Convert.ToInt32(TextBoxIloscDok.Text);
-            Label1.Text += " Ilosc rekordow " + iloscRekordow.ToString();
 
             int min = 1;
             int max = 100;
@@ -205,9 +204,10 @@ namespace WersjonowanieDanych
                         {
                             for (int j = 1; j < wersja; j++) //dodanie tylu wersji ile jest potrzebnych
                             {
-                                queryStringOracle = "BEGIN DOKMED.PRO_DODANIE_WERSJI(" + id_his + ", 'kurde czy sie uda');END;";
+                                queryStringOracle = "DECLARE tymCLOB clob:='" + xmlDocument + "'; " +
+                                    "BEGIN DOKMED.PRO_DODANIE_WERSJI(" + id_his + ", tymCLOB);END;";
+
                                 ZapytanieOracle(connectionStringOracle, queryStringOracle);
-                                Label1.Text += " Numer rekordu " + id_his.ToString();
                             }
                         }
                     }
@@ -249,12 +249,12 @@ namespace WersjonowanieDanych
                 new XProcessingInstruction("xml-stylesheet", "href=\"CDA_PL_IG_1.3.1.xsl\" type=\"text/xsl\""), clinicalDocument.ZrotWartosci()
             );
 
-            XDocument xmlDocument2 = new XDocument(
-                new XDeclaration("1.0", "utf-8", "no"),
-                new XProcessingInstruction("xml-stylesheet", "href=\"CDA_PL_IG_1.3.1.xsl\" type=\"text/xsl\""), component.ZrotWartosci()
-);
+            //XDocument xmlDocument2 = new XDocument(
+            //    new XDeclaration("1.0", "utf-8", "no"),
+            //    new XProcessingInstruction("xml-stylesheet", "href=\"CDA_PL_IG_1.3.1.xsl\" type=\"text/xsl\""), component.ZrotWartosci()
+            //   );
 
-            #endregion
+            //#endregion
             // zapis xml do pliku
             //xmlDocument.Save(@"C:/Pliki/KartaInformacyjna.xml");
 
@@ -269,9 +269,10 @@ namespace WersjonowanieDanych
             XElement componentOfXE = new XElement(componentOf.ZrotWartosci());
             XElement componentXE = new XElement(component.ZrotWartosci());
 
+            #endregion
 
-            string queryStringSQL = "select * from HisXMLType where CzyImport = 0";
             string nazwaBazy = "HisXMLType";
+            string queryStringSQL = "select * from " + nazwaBazy + " where CzyImport = 0";
             string queryStringOracle;
 
             string connectionStringOracle = ConfigurationManager.ConnectionStrings["ConnectionStringDokMedXML"].ConnectionString;
@@ -283,12 +284,18 @@ namespace WersjonowanieDanych
             int iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
 
             int ilosc = Convert.ToInt32(TextBoxIloscDok.Text);
-            Label1.Text += " Ilosc rekordow " + iloscRekordow.ToString();
+            //Label1.Text += " Ilosc rekordow " + iloscRekordow.ToString();
 
             int min = 1;
             int max = 100;
             int id_his = 0;
             int wersja = 0;
+            int wersjaRecordTargetXE = 0;
+            int wersjaAuthorXE = 0;
+            int wersjaCustodianXE = 0;
+            int wersjaLegalAuthenticatorXE= 0;
+            int wersjaComponentOfXE = 0;
+            int wersjaComponentXE = 0;
 
 
             while (iloscRekordow > 0)
@@ -298,12 +305,9 @@ namespace WersjonowanieDanych
                     if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
                     {
                         id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
-                        wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
 
                         //queryStringOracle = "begin DOKMEDXML.PRO_DODANIE_WERSJI("+ id_his +", XMLType('<Building>Owned</Building>')); end;";
-                        //queryStringOracle = "begin DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", XMLType('" + componentOfXE + "')); end;";
-                        //queryStringOracle = "begin DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", XMLType('" + naglowekXE + "')); end;";
-                        queryStringOracle = "begin DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", XMLType('" + naglowekXE + "'), XMLType('" + recordTargetXE + "')," +
+                        queryStringOracle = "begin DOKMEDXML.PRO_DODANIE_DOKUMENTU(" + id_his + ", XMLType('" + naglowekXE + "'), XMLType('" + recordTargetXE + "')," +
                             "XMLType('" + authorXE + "'), XMLType('" + custodianXE + "'), XMLType('" + legalAuthenticatorXE + "'), XMLType('" + componentOfXE + "')," +
                             "XMLType('" + componentXE + "')); end;";
 
@@ -315,23 +319,77 @@ namespace WersjonowanieDanych
 
                 //wersjonowanie
 
-                //for (int i = 0; i < 100; i++)
-                //{
-                //    if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
-                //    {
-                //        id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
-                //        wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
-                //        if (wersja > 1)
-                //        {
-                //            for (int j = 1; j < wersja; j++) //dodanie tylu wersji ile jest potrzebnych
-                //            {
-                //                queryStringOracle = "BEGIN DOKMED.PRO_DODANIE_WERSJI(" + id_his + ", 'kurde czy sie uda');END;";
-                //                ZapytanieOracle(connectionStringOracle, queryStringOracle);
-                //                Label1.Text += " Numer rekordu " + id_his.ToString();
-                //            }
-                //        }
-                //    }
-                //}
+                for (int i = 0; i < 100; i++)
+                {
+                    if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
+                    {
+                        id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
+                        wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
+                        wersjaRecordTargetXE = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(2));
+                        wersjaAuthorXE = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(3));
+                        wersjaCustodianXE = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(4));
+                        wersjaLegalAuthenticatorXE = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(5));
+                        wersjaComponentOfXE = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(6));
+                        wersjaComponentXE = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(7));
+
+                        if (wersja > 1)
+                        {
+                            for (int j = 1; j < wersja; j++) //dodanie tylu wersji ile jest potrzebnych
+                            {
+                                if (wersjaRecordTargetXE>1)
+                                {
+                                    wersjaRecordTargetXE--;
+                                    //queryStringOracle = "BEGIN DOKMED.PRO_DODANIE_WERSJI(" + id_his + ", XMLType('<Building>Owned</Building>'));END;";
+                                    //queryStringOracle = "BEGIN DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", 2, XMLType('<Building>Owned</Building>'));END;";
+                                    queryStringOracle = "BEGIN DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", 2, XMLType('" + recordTargetXE + "'));END;";
+                                }
+                                else
+                                {
+                                    if (wersjaAuthorXE>1)
+                                    {
+                                        wersjaAuthorXE--;
+                                        queryStringOracle = "BEGIN DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", 3, XMLType('" + authorXE + "'));END;";
+                                    }
+                                    else
+                                    {
+                                        if (wersjaCustodianXE>1)
+                                        {
+                                            wersjaCustodianXE--;
+                                            queryStringOracle = "BEGIN DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", 4, XMLType('" + custodianXE + "'));END;";
+                                        }
+                                        else
+                                        {
+                                            if (wersjaLegalAuthenticatorXE>1)
+                                            {
+                                                wersjaLegalAuthenticatorXE--;
+                                                queryStringOracle = "BEGIN DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", 5, XMLType('" + legalAuthenticatorXE + "'));END;";
+                                            }
+                                            else
+                                            {
+                                                if (wersjaComponentOfXE>1)
+                                                {
+                                                    wersjaComponentOfXE--;
+                                                    queryStringOracle = "BEGIN DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", 6, XMLType('" + componentOfXE + "'));END;";
+                                                }
+                                                else
+                                                {
+                                                    if (wersjaComponentXE>1)
+                                                    {
+                                                        wersjaComponentXE--;
+                                                        queryStringOracle = "BEGIN DOKMEDXML.PRO_DODANIE_WERSJI(" + id_his + ", 7, XMLType('" + componentXE + "'));END;";
+                                                    }
+                                                    else queryStringOracle = "select * from dual;";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                ZapytanieOracle(connectionStringOracle, queryStringOracle);
+                            }
+                        }
+                    }
+                }
 
                 //dane wyeksportowane
                 queryStringSQL = "update " + nazwaBazy + " set Czyimport = 1 where ID_Dok between " + min + " AND " + max + ";";
