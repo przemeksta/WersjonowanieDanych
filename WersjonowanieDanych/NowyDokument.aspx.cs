@@ -9,6 +9,12 @@ using Oracle.ManagedDataAccess.Client;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using MongoDB.Driver;
+using Newtonsoft.Json;
+using System.Xml;
+using System.IO;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson;
 
 namespace WersjonowanieDanych
 {
@@ -152,60 +158,63 @@ namespace WersjonowanieDanych
             );
 
             #endregion
-            //zapis xml do pliku
-            //xmlDocument.Save(@"C:/Pliki/KartaInformacyjna.xml");
+            // zapis xml do pliku
+            // xmlDocument.Save(@"C:/Pliki/KartaInformacyjna.xml");
 
-            string queryStringSQL = "select * from HisCLOB where CzyImport = 0";
+            //czyszczenie ekranu
+            Label1.Text = " " ;
             string nazwaBazy = "HisCLOB";
+
+            string queryStringSQL = "select TOP(100) * from " + nazwaBazy + " where CzyImport = 0";
             string queryStringOracle;
 
-            string connectionStringOracle = ConfigurationManager.ConnectionStrings["ConnectionStringDokMed"].ConnectionString;
+            // string do bazy testowej
+            // string connectionStringOracle = ConfigurationManager.ConnectionStrings["ConnectionStringDokMed"].ConnectionString;
+            string connectionStringOracle = ConfigurationManager.ConnectionStrings["ConnectionStringDokMed_CLOB"].ConnectionString;
             string connectionStringSQL = ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString;
 
             DataSet dataset = new DataSet();
 
             dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
-            int iloscRekordow = dataset.Tables["HisCLOB"].Rows.Count;
+            int iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
+            int ilosc = Convert.ToInt32(TextBoxIloscDodacDoBazy.Text);
 
-            int ilosc = Convert.ToInt32(TextBoxIloscDok.Text);
-
-            int min = 1;
-            int max = 100;
             int id_his = 0;
             int wersja = 0;
+            int min2 = 0;
+            int max2 = 0;
 
-            while (iloscRekordow>0)
+
+            while ((iloscRekordow > 0) && (ilosc>0))
             {
                 for (int i = 0; i < 100; i++)
                 {
-                    if(i<iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
+                    if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
                     {
-                        id_his = Convert.ToInt32(dataset.Tables["HisCLOB"].Rows[i].ItemArray.GetValue(0));
-                        wersja = Convert.ToInt32(dataset.Tables["HisCLOB"].Rows[i].ItemArray.GetValue(1));
+                        id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
+                        wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
 
                         queryStringOracle = "DECLARE tymCLOB clob:='" + xmlDocument + "'; " +
                             "tymID_HIS number:=" + id_his + "; " +
                             "BEGIN insert into DOKUMENTY_CLOB(id, wersja, wersja_aktualna, autor, id_baza_his, dane_clob) " +
-                            "VALUES(DOKMED.SEQ_ID_DOKUMENTY_CLOB.nextval,1,1,12345,tymID_HIS,tymCLOB); commit; END;";
+                            "VALUES(DOKMED_CLOB.SEQ_ID_DOKUMENTY_CLOB.nextval,1,1,12345,tymID_HIS,tymCLOB); commit; END;";
 
                         ZapytanieOracle(connectionStringOracle, queryStringOracle);
                     }
                 }
 
-                Label1.Text += " Ilosc rekordow " + iloscRekordow.ToString();
-
                 for (int i = 0; i < 100; i++)
                 {
                     if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
                     {
-                        id_his = Convert.ToInt32(dataset.Tables["HisCLOB"].Rows[i].ItemArray.GetValue(0));
-                        wersja = Convert.ToInt32(dataset.Tables["HisCLOB"].Rows[i].ItemArray.GetValue(1));
+                        id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
+                        wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
                         if (wersja > 1)
                         {
                             for (int j = 1; j < wersja; j++) //dodanie tylu wersji ile jest potrzebnych
                             {
                                 queryStringOracle = "DECLARE tymCLOB clob:='" + xmlDocument + "'; " +
-                                    "BEGIN DOKMED.PRO_DODANIE_WERSJI(" + id_his + ", tymCLOB);END;";
+                                    "BEGIN DOKMED_CLOB.PRO_DODANIE_WERSJI(" + id_his + ", tymCLOB);END;";
 
                                 ZapytanieOracle(connectionStringOracle, queryStringOracle);
                             }
@@ -213,17 +222,23 @@ namespace WersjonowanieDanych
                     }
                 }
 
-                // dane wyeksportowane
-                queryStringSQL = "update HisCLOB set Czyimport = 1 where ID_Dok between " + min + " AND " + max + ";";
+                // okreslenie zaimportowanych dokumnetow
+                min2=Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[0].ItemArray.GetValue(0));
+                max2=Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[99].ItemArray.GetValue(0));
+                Label1.Text += " ID-" + min2.ToString();
+                Label1.Text += " IDmax- " + max2.ToString();
+
+                // dane wyeksportowane update na bazie
+                queryStringSQL = "update " + nazwaBazy + " set Czyimport = 1 where ID_Dok between " + min2 + " AND " + max2 + ";";
                 ZapytanieMsSql(connectionStringSQL, queryStringSQL);
 
                 // obliczenie nowego zakresu danych
-                queryStringSQL = "select * from HisCLOB where CzyImport = 0";
-                dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
-                iloscRekordow = dataset.Tables["HisCLOB"].Rows.Count;
+                queryStringSQL = "select TOP(100) * from " + nazwaBazy + " where CzyImport = 0";
 
-                min += 100;
-                max += 100;
+                dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
+                iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
+
+                ilosc -= 100;
             }
         }
 
@@ -271,8 +286,10 @@ namespace WersjonowanieDanych
 
             #endregion
 
+            Label1.Text = " ";
             string nazwaBazy = "HisXMLType";
-            string queryStringSQL = "select * from " + nazwaBazy + " where CzyImport = 0";
+            string queryStringSQL = "select TOP(100) * from " + nazwaBazy + " where CzyImport = 0";
+            //string queryStringSQL = "select * from " + nazwaBazy + " where CzyImport = 0";
             string queryStringOracle;
 
             string connectionStringOracle = ConfigurationManager.ConnectionStrings["ConnectionStringDokMedXML"].ConnectionString;
@@ -282,12 +299,12 @@ namespace WersjonowanieDanych
 
             dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
             int iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
+            Label1.Text = "ILOSC rekordow-----"  + iloscRekordow.ToString();
+            int ilosc = Convert.ToInt32(TextBoxIloscDodacDoBazy.Text);
 
-            int ilosc = Convert.ToInt32(TextBoxIloscDok.Text);
-            //Label1.Text += " Ilosc rekordow " + iloscRekordow.ToString();
+            int min2 = 0;
+            int max2 = 0;
 
-            int min = 1;
-            int max = 100;
             int id_his = 0;
             int wersja = 0;
             int wersjaRecordTargetXE = 0;
@@ -298,7 +315,7 @@ namespace WersjonowanieDanych
             int wersjaComponentXE = 0;
 
 
-            while (iloscRekordow > 0)
+            while ((iloscRekordow > 0) && (ilosc > 0))
             {
                 for (int i = 0; i < 100; i++)
                 {
@@ -391,18 +408,105 @@ namespace WersjonowanieDanych
                     }
                 }
 
+                min2 = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[0].ItemArray.GetValue(0));
+                max2 = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[99].ItemArray.GetValue(0));
+                Label1.Text += " ID-" + min2.ToString();
+                Label1.Text += " IDmax- " + max2.ToString();
+
                 //dane wyeksportowane
-                queryStringSQL = "update " + nazwaBazy + " set Czyimport = 1 where ID_Dok between " + min + " AND " + max + ";";
+                queryStringSQL = "update " + nazwaBazy + " set Czyimport = 1 where ID_Dok between " + min2 + " AND " + max2 + ";";
                 ZapytanieMsSql(connectionStringSQL, queryStringSQL);
 
                 // obliczenie nowego zakresu danych
-                queryStringSQL = "select * from " + nazwaBazy + " where CzyImport = 0";
+                queryStringSQL = "select TOP(100) * from " + nazwaBazy + " where CzyImport = 0";
+
                 dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
                 iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
 
-                min += 100;
-                max += 100;
+                ilosc -= 100;
             }
+        }
+
+        protected void ButtonDodajDokumntMongo_Click(object sender, EventArgs e)
+        {
+            var connectionString = "mongodb://192.168.1.115:27017";
+            connectionString = "mongodb://192.168.1.152:27017";
+
+            MongoClient dbClient = new MongoClient(connectionString);
+
+            //Database List  
+            //var dbList = dbClient.ListDatabases().ToList();
+
+            //foreach (var item in dbList)
+            //{
+            //    Label1.Text += " Ilosc rekordow " + item.ToString();
+            //}
+
+            IMongoDatabase db = dbClient.GetDatabase("dokmed");
+
+            //var collList = db.ListCollections().ToList();
+            //Console.WriteLine("The list of collections are :");
+            //foreach (var item in collList)
+            //{
+            //    Label1.Text += " Ilosc  " + item.ToString();
+            //}
+
+            XEL_recordTarget recordTarget = new XEL_recordTarget();
+            XEL_author author = new XEL_author();
+
+            XElement xml = new XElement(recordTarget.ZrotWartosci());
+            XElement authorXE = new XElement(author.ZrotWartosci());
+            //string xml = "<tree id=\"0\">" +
+            //            "<item text=\"Folder_name\" id=\"FOLDER_1\" parentId=\"0\">" +
+            //                "<item text=\"Other folder name\" id=\"FOLDER_96\" parentId=\"1\">" +
+            //                    "<item text=\"Third folder name\" id=\"FOLDER_127\" parentId=\"96\">" +
+            //                        "<item text=\"New folder\" id=\"FOLDER_147\" parentId=\"127\" />" +
+            //                        "<item text=\"item name\" id=\"959\" parentId=\"147\" />" +
+            //                        "<item text=\"item name sdgdfh\" id=\"1152\" parentId=\"147\" />" +
+            //                    "</item>" +
+            //                "</item>" +
+            //            "</item>" +
+            //        "</tree>";
+
+            //var xmlDocument = new XmlDocument();
+            // xmlDocument.LoadXml(xml);
+
+            //XEL_recordTarget recordTarget = new XEL_recordTarget();
+            //XElement xml = new XElement(recordTarget.ZrotWartosci());
+
+
+            XmlDocument xD = new XmlDocument();
+            XmlDocument xD2 = new XmlDocument();
+            xD.LoadXml(xml.ToString());
+            xD2.LoadXml(authorXE.ToString());
+
+            XmlNode xN = xD.FirstChild;
+            XmlNode xN2 = xD2.FirstChild;
+
+            string json = JsonConvert.SerializeXmlNode(xN);
+            string json2 = JsonConvert.SerializeXmlNode(xN2);
+
+            //Label1.Text = json.ToString();
+            //File.WriteAllText(@"C:/Pliki/json.txt",json);
+
+            BsonDocument document = BsonDocument.Parse(json);
+            BsonDocument document2 = BsonDocument.Parse(json2);
+
+            var document3 = new BsonDocument
+                {
+                  {"firstname", BsonValue.Create("Peter")},
+                  {"lastname", new BsonString("Mbanugo")},
+                  { "subjects", new BsonArray(new[] {"English", "Mathematics", "Physics"}) },
+                  { "class", "JSS 3" },
+                  { "age", int.MaxValue }
+                };
+
+
+            var things = db.GetCollection<BsonDocument>("dokumenty");
+            things.InsertOne(document);
+            things.InsertOne (document2);
+            things.InsertOne(document3);
+
         }
 
         protected void ButtonDodajDokumntCLOBLosowy_Click(object sender, EventArgs e)
@@ -522,6 +626,12 @@ namespace WersjonowanieDanych
             }
         }
 
+        protected void ButtonTestBazaCLOB_Click(object sender, EventArgs e)
+        {
+            string connectionStringOracle = ConfigurationManager.ConnectionStrings["ConnectionStringDokMed_CLOB"].ConnectionString;
+            string queryStringOracle = "select count(*) from dual";
+            Label1.Text += ZapytanieOracle(connectionStringOracle, queryStringOracle,1);
+        }
 
 
         //-------------------------- Funkcje ------------------------------------------------------------
@@ -543,6 +653,33 @@ namespace WersjonowanieDanych
                     LabelWitam.Text += ex.Message;
                 }
                 connection.Close();
+            }
+        }
+
+        public int ZapytanieOracle(string connectionString, string queryString, int duall)
+        {
+            int dual = 0;
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    OracleCommand command = connection.CreateCommand();
+                    command.CommandText = queryString;
+                    connection.Open();
+                    OracleDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        dual = reader.GetInt32(0);
+                    }
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    LabelWitam.Text += ex.Message;
+                }
+                connection.Close();
+
+                return dual;
             }
         }
 

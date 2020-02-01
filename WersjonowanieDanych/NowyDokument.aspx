@@ -66,7 +66,7 @@
                     <td class="auto-style3">
                         &nbsp;</td>
                     <td class="auto-style5">
-                        Schemat Wersjionowania</td>
+                        Dodanie losowego schematu</td>
                     <td class="auto-style5">
                         Dokumnt testowy</td>
                     <td class="auto-style6">
@@ -111,6 +111,31 @@
                     <td class="auto-style3">
                         &nbsp;</td>
                     <td class="auto-style5">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:TextBox ID="TextBoxIloscDodacDoBazy" runat="server" Width="212px">0</asp:TextBox>
+                    </td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        &nbsp;</td>
+                    <td class="auto-style5">
                         <asp:Button ID="ButtonlosowanieCLOB" runat="server" Font-Bold="True" OnClick="ButtonlosowanieCLOB_Click" Text="Losowanie CLOB" Width="220px" />
                     </td>
                     <td class="auto-style5">
@@ -121,7 +146,9 @@
                     </td>
                     <td class="auto-style7">
                         &nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Button ID="ButtonTestBazaCLOB" runat="server" Font-Bold="True" OnClick="ButtonTestBazaCLOB_Click" Text="Test Baza CLOB" Width="220px" />
+                    </td>
                     <td class="auto-style4">&nbsp;</td>
                 </tr>
                 <tr>
@@ -146,7 +173,7 @@
                     <td class="auto-style5">
                         &nbsp;</td>
                     <td class="auto-style5">
-                        <asp:Button ID="ButtonDodajDokumntMongo" runat="server" Text="Dodaj Dokumnt Mongo" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntCLOB_Click" />
+                        <asp:Button ID="ButtonDodajDokumntMongo" runat="server" Text="Dodaj Dokumnt Mongo" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntMongo_Click" />
                     </td>
                     <td class="auto-style6">
                         <asp:Button ID="ButtonDodajDokumntMongoLosowy" runat="server" Text="Dodaj Dokumnt Mongo Losowy" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntCLOB_Click" />
