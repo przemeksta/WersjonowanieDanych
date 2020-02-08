@@ -429,8 +429,34 @@ namespace WersjonowanieDanych
 
         protected void ButtonDodajDokumntMongo_Click(object sender, EventArgs e)
         {
+            // baza docker
             var connectionString = "mongodb://192.168.1.115:27017";
+            // baza na Centos8
             connectionString = "mongodb://192.168.1.152:27017";
+
+
+            #region tworzenie XML
+            XNamespace aw = "urn:hl7-org:v3";
+            XNamespace xsi = "http://www.w3.org/2001/XMLSchema-instance";
+            XNamespace extPL = "http://www.csioz.gov.pl/xsd/extPL/r2";
+
+            XEL_recordTarget recordTarget = new XEL_recordTarget();
+            XEL_author author = new XEL_author();
+            XEL_custodian custodian = new XEL_custodian();
+            XEL_legalAuthenticator legalAuthenticator = new XEL_legalAuthenticator();
+            XEL_componentOf componentOf = new XEL_componentOf();
+            XEL_component component = new XEL_component();
+            XEL_ClinicalDocument ClinicalDocument = new XEL_ClinicalDocument(recordTarget.ZrotWartosci(), author.ZrotWartosci(), custodian.ZrotWartosci(), legalAuthenticator.ZrotWartosci(), componentOf.ZrotWartosci(), component.ZrotWartosci());
+
+            XDocument xmlDocument = new XDocument(
+                new XDeclaration("1.0", "utf-8", "no"),
+                new XProcessingInstruction("xml-stylesheet", "href=\"CDA_PL_IG_1.3.1.xsl\" type=\"text/xsl\""), ClinicalDocument.ZrotWartosci()
+            );
+
+            #endregion
+
+            // zapis xml do pliku
+            //xmlDocument.Save(@"C:/Pliki/KartaInformacyjna.xml");
 
             MongoClient dbClient = new MongoClient(connectionString);
 
@@ -450,12 +476,6 @@ namespace WersjonowanieDanych
             //{
             //    Label1.Text += " Ilosc  " + item.ToString();
             //}
-
-            XEL_recordTarget recordTarget = new XEL_recordTarget();
-            XEL_author author = new XEL_author();
-
-            XElement xml = new XElement(recordTarget.ZrotWartosci());
-            XElement authorXE = new XElement(author.ZrotWartosci());
             //string xml = "<tree id=\"0\">" +
             //            "<item text=\"Folder_name\" id=\"FOLDER_1\" parentId=\"0\">" +
             //                "<item text=\"Other folder name\" id=\"FOLDER_96\" parentId=\"1\">" +
@@ -474,39 +494,202 @@ namespace WersjonowanieDanych
             //XEL_recordTarget recordTarget = new XEL_recordTarget();
             //XElement xml = new XElement(recordTarget.ZrotWartosci());
 
+            string nazwaBazy = "HisCLOB";
+            string queryStringSQL = "select TOP(100) * from " + nazwaBazy + " where CzyImport = 0";
+            string connectionStringSQL = ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString;
+
+            DataSet dataset = new DataSet();
+
+
+            dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
+            int iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
+
+            int id_his = 0;
+            int wersja = 0;
+
+            for (int i = 0; i < 100; i++)
+            {
+                if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
+                {
+                    id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
+                    wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
+
+                }
+            }
+
+
+
+
+            //XEL_recordTarget recordTarget = new XEL_recordTarget();
+            //XEL_author author = new XEL_author();
+
+            XElement xml = new XElement(ClinicalDocument.ZrotWartosci());
+            XElement recordTargetXE = new XElement(recordTarget.ZrotWartosci());
+            XElement authorXE = new XElement(author.ZrotWartosci());
+            XElement custodianXE = new XElement(custodian.ZrotWartosci());
+            XElement legalAuthenticatorXE = new XElement(legalAuthenticator.ZrotWartosci());
+            XElement componentOfXE = new XElement(componentOf.ZrotWartosci());
+            XElement componentXE = new XElement(component.ZrotWartosci());
+
+
+            XElement clinicalDocumentXE = new XElement(ClinicalDocument.ZrotWartosci());
+
 
             XmlDocument xD = new XmlDocument();
+            XmlDocument xD1 = new XmlDocument();
             XmlDocument xD2 = new XmlDocument();
+            XmlDocument xD3 = new XmlDocument();
+            XmlDocument xD4 = new XmlDocument();
+            XmlDocument xD5 = new XmlDocument();
+            XmlDocument xD6 = new XmlDocument();
+            XmlDocument xD7 = new XmlDocument();
+
             xD.LoadXml(xml.ToString());
+            xD1.LoadXml(recordTargetXE.ToString());
             xD2.LoadXml(authorXE.ToString());
+            xD3.LoadXml(custodianXE.ToString());
+            xD4.LoadXml(legalAuthenticatorXE.ToString());
+            xD5.LoadXml(componentOfXE.ToString());
+            xD6.LoadXml(componentXE.ToString());
+            xD7.LoadXml(xmlDocument.ToString());
+
+            //xD3.LoadXml(clinicalDocumentXE.ToString());
 
             XmlNode xN = xD.FirstChild;
+            XmlNode xN1 = xD1.FirstChild;
             XmlNode xN2 = xD2.FirstChild;
+            XmlNode xN3 = xD3.FirstChild;
+            XmlNode xN4 = xD4.FirstChild;
+            XmlNode xN5 = xD5.FirstChild;
+            XmlNode xN6 = xD6.FirstChild;
+            XmlNode xN7 = xD7.FirstChild;
+
 
             string json = JsonConvert.SerializeXmlNode(xN);
+            string json1 = JsonConvert.SerializeXmlNode(xN1);
             string json2 = JsonConvert.SerializeXmlNode(xN2);
+            string json3 = JsonConvert.SerializeXmlNode(xN3);
+            string json4 = JsonConvert.SerializeXmlNode(xN4);
+            string json5 = JsonConvert.SerializeXmlNode(xN5);
+            string json6 = JsonConvert.SerializeXmlNode(xN6);
+            string json7 = JsonConvert.SerializeXmlNode(xN7);
+
 
             //Label1.Text = json.ToString();
             //File.WriteAllText(@"C:/Pliki/json.txt",json);
 
             BsonDocument document = BsonDocument.Parse(json);
+            BsonDocument document1 = BsonDocument.Parse(json1);
             BsonDocument document2 = BsonDocument.Parse(json2);
+            BsonDocument document3 = BsonDocument.Parse(json3);
+            BsonDocument document4 = BsonDocument.Parse(json4);
+            BsonDocument document5 = BsonDocument.Parse(json5);
+            BsonDocument document6 = BsonDocument.Parse(json6);
+            BsonDocument document7 = BsonDocument.Parse(json7);
 
-            var document3 = new BsonDocument
+            //var document58 = new BsonDocument
+            //    {
+            //      //{"_id", BsonValue.Create(1)},
+            //      {"id_nad", BsonValue.Create(1)},
+            //      {"versia", BsonValue.Create(1)},
+            //      {"data_dodania", BsonValue.Create(1)},
+            //      {"autor", BsonValue.Create(1)},
+            //      { "dane_dokumntu1", document1},
+            //      { "dane_dokumntu2", document2},
+            //      { "dane_dokumntu3", document3},
+            //      { "dane_dokumntu4", document4},
+            //      { "dane_dokumntu5", document5},
+            //      { "dane_dokumntu6", document6},
+            //      { "dok caly", document7}
+            //    };
+           BsonValue klucz = BsonValue.Create(23);
+
+            var document44 = new BsonDocument
                 {
-                  {"firstname", BsonValue.Create("Peter")},
-                  {"lastname", new BsonString("Mbanugo")},
-                  { "subjects", new BsonArray(new[] {"English", "Mathematics", "Physics"}) },
-                  { "class", "JSS 3" },
-                  { "age", int.MaxValue }
+                  //{"_id", klucz},
+                  {"id_nad", BsonValue.Create(0)},
+                  {"versia", BsonValue.Create(1)},
+                  {"versia_aktualna", BsonValue.Create(1)},
+                  {"data_dodania",  DateTime.Today.ToShortDateString()},
+                  {"autor", BsonValue.Create(34512)},
+                  {"id_baza_his",BsonValue.Create(1)},
+                  {document}
                 };
 
 
-            var things = db.GetCollection<BsonDocument>("dokumenty");
-            things.InsertOne(document);
-            things.InsertOne (document2);
-            things.InsertOne(document3);
 
+
+           BsonObjectId objektID;
+
+            //var document3 = new BsonDocument
+            //    {
+            //      {"firstname", BsonValue.Create("Peter")},
+            //      {"lastname", new BsonString("Mbanugo")},
+            //      { "subjects", new BsonArray(new[] {"English", "Mathematics", "Physics"}) },
+            //      { "class", "JSS 3" },
+            //      { "age", int.MaxValue }
+            //    };
+
+            //var document44 = new BsonDocument
+            //    {
+            //      {"firstname", BsonValue.Create("Peter")},
+            //      {"lastname", new BsonString("Mbanugo")},
+            //      { "subjects", new BsonArray(new[] {"English", "Mathematics", "Physics"}) },
+            //      { "class", "JSS 3" },
+            //      { "age", int.MaxValue },
+            //      {"dane", document }
+            //    };
+
+            var things = db.GetCollection<BsonDocument>("dokumenty");
+            //things.InsertOne(document);
+            //things.InsertOne(document2);
+            //things.InsertOne(document3);
+            things.InsertOne(document44);
+            //var resultDoc = things.Find(new BsonDocument()).ToList();
+            //things.InsertOne(document45);
+            //things.UpdateOne()
+
+            var filter = Builders<BsonDocument>.Filter.Eq("autor", 34512); 
+
+
+            var doc = things.Find(filter).FirstOrDefault();
+            //Console.WriteLine(doc.ToString());
+            //Label1.Text += " ID-" + doc.ToString();
+
+     
+            foreach (BsonElement docc in doc)
+            {
+                if (docc.Name == "_id")
+                {
+                    Label1.Text += " gotowe";
+                    Label1.Text += docc.Value;
+                    objektID = BsonObjectId.Create(docc.Value);
+
+                    var document45 = new BsonDocument
+                    {
+
+                      //{"_id", BsonValue.Create(1)},
+                      {"id_nad",objektID},
+                      {"versia", BsonValue.Create(1)},
+                      {"versia_aktualna", BsonValue.Create(1)},
+                      {"data_dodania",  DateTime.Today.ToShortDateString()},
+                      {"autor", BsonValue.Create(34512)},
+                      {"id_baza_his",BsonValue.Create(1)},
+                      {document}
+
+                    };
+                    things.InsertOne(document45);
+
+                    break;
+                }
+                //Label1.Text += docc.Value;
+                //Label1.Text += " \n Wartośc" + docc.ToString();
+            }
+
+
+
+
+            //things.InsertOne(document45);
         }
 
         protected void ButtonDodajDokumntCLOBLosowy_Click(object sender, EventArgs e)
@@ -633,6 +816,478 @@ namespace WersjonowanieDanych
             Label1.Text += ZapytanieOracle(connectionStringOracle, queryStringOracle,1);
         }
 
+        protected void ButtonDodajDokumntMongo2_Click(object sender, EventArgs e)
+        {
+            // baza docker
+            var connectionString = "mongodb://192.168.1.115:27017";
+            // baza na Centos8
+            connectionString = "mongodb://192.168.1.152:27017";
+
+
+            #region tworzenie XML
+            XNamespace aw = "urn:hl7-org:v3";
+            XNamespace xsi = "http://www.w3.org/2001/XMLSchema-instance";
+            XNamespace extPL = "http://www.csioz.gov.pl/xsd/extPL/r2";
+
+            XEL_recordTarget recordTarget = new XEL_recordTarget();
+            XEL_author author = new XEL_author();
+            XEL_custodian custodian = new XEL_custodian();
+            XEL_legalAuthenticator legalAuthenticator = new XEL_legalAuthenticator();
+            XEL_componentOf componentOf = new XEL_componentOf();
+            XEL_component component = new XEL_component();
+            XEL_ClinicalDocument ClinicalDocument = new XEL_ClinicalDocument(recordTarget.ZrotWartosci(), author.ZrotWartosci(), custodian.ZrotWartosci(), legalAuthenticator.ZrotWartosci(), componentOf.ZrotWartosci(), component.ZrotWartosci());
+
+            XDocument xmlDocument = new XDocument(
+                new XDeclaration("1.0", "utf-8", "no"),
+                new XProcessingInstruction("xml-stylesheet", "href=\"CDA_PL_IG_1.3.1.xsl\" type=\"text/xsl\""), ClinicalDocument.ZrotWartosci()
+            );
+
+            #endregion
+
+            MongoClient dbClient = new MongoClient(connectionString);
+
+            IMongoDatabase db = dbClient.GetDatabase("dokmed");
+
+            string nazwaBazy = "HisCLOB";
+            string queryStringSQL = "select TOP(100) * from " + nazwaBazy + " where CzyImport = 0";
+            string connectionStringSQL = ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString;
+
+            DataSet dataset = new DataSet();
+
+
+            dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
+            int iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
+
+            int id_his = 0;
+            int wersja = 0;
+
+            for (int i = 0; i < 100; i++)
+            {
+                if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
+                {
+                    id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
+                    wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
+
+                }
+            }
+
+
+            XElement xml = new XElement(ClinicalDocument.ZrotWartosci());
+            XElement recordTargetXE = new XElement(recordTarget.ZrotWartosci());
+            XElement authorXE = new XElement(author.ZrotWartosci());
+            XElement custodianXE = new XElement(custodian.ZrotWartosci());
+            XElement legalAuthenticatorXE = new XElement(legalAuthenticator.ZrotWartosci());
+            XElement componentOfXE = new XElement(componentOf.ZrotWartosci());
+            XElement componentXE = new XElement(component.ZrotWartosci());
+
+
+            XElement clinicalDocumentXE = new XElement(ClinicalDocument.ZrotWartosci());
+
+
+            XmlDocument xD = new XmlDocument();
+            XmlDocument xD1 = new XmlDocument();
+            XmlDocument xD2 = new XmlDocument();
+            XmlDocument xD3 = new XmlDocument();
+            XmlDocument xD4 = new XmlDocument();
+            XmlDocument xD5 = new XmlDocument();
+            XmlDocument xD6 = new XmlDocument();
+            XmlDocument xD7 = new XmlDocument();
+
+            xD.LoadXml(xml.ToString());
+            xD1.LoadXml(recordTargetXE.ToString());
+            xD2.LoadXml(authorXE.ToString());
+            xD3.LoadXml(custodianXE.ToString());
+            xD4.LoadXml(legalAuthenticatorXE.ToString());
+            xD5.LoadXml(componentOfXE.ToString());
+            xD6.LoadXml(componentXE.ToString());
+            xD7.LoadXml(xmlDocument.ToString());
+
+            //xD3.LoadXml(clinicalDocumentXE.ToString());
+
+            XmlNode xN = xD.FirstChild;
+            XmlNode xN1 = xD1.FirstChild;
+            XmlNode xN2 = xD2.FirstChild;
+            XmlNode xN3 = xD3.FirstChild;
+            XmlNode xN4 = xD4.FirstChild;
+            XmlNode xN5 = xD5.FirstChild;
+            XmlNode xN6 = xD6.FirstChild;
+            XmlNode xN7 = xD7.FirstChild;
+
+
+            string json = JsonConvert.SerializeXmlNode(xN);
+            string json1 = JsonConvert.SerializeXmlNode(xN1);
+            string json2 = JsonConvert.SerializeXmlNode(xN2);
+            string json3 = JsonConvert.SerializeXmlNode(xN3);
+            string json4 = JsonConvert.SerializeXmlNode(xN4);
+            string json5 = JsonConvert.SerializeXmlNode(xN5);
+            string json6 = JsonConvert.SerializeXmlNode(xN6);
+            string json7 = JsonConvert.SerializeXmlNode(xN7);
+
+
+            //Label1.Text = json.ToString();
+            //File.WriteAllText(@"C:/Pliki/json.txt",json);
+
+            BsonDocument document = BsonDocument.Parse(json);
+            BsonDocument document1 = BsonDocument.Parse(json1);
+            BsonDocument document2 = BsonDocument.Parse(json2);
+            BsonDocument document3 = BsonDocument.Parse(json3);
+            BsonDocument document4 = BsonDocument.Parse(json4);
+            BsonDocument document5 = BsonDocument.Parse(json5);
+            BsonDocument document6 = BsonDocument.Parse(json6);
+            BsonDocument document7 = BsonDocument.Parse(json7);
+
+            var things = db.GetCollection<BsonDocument>("dokumenty2");
+
+                var document45 = new BsonDocument
+                    {
+                      {"versia_aktualna", BsonValue.Create(1)},
+                      {"data_dodania",  DateTime.Today.ToShortDateString()},
+                      {"autor", BsonValue.Create(34512)},
+                      {"id_baza_his",BsonValue.Create(1)},
+                      {"wersje", new BsonArray(new[] {document, document, document, document}) },
+                    };
+                things.InsertOne(document45);
+
+            var document46 = new BsonDocument
+                    {
+                      {"versia_aktualna", BsonValue.Create(1)},
+                      {"data_dodania", new BsonArray(new[] {DateTime.Today.ToShortDateString(),DateTime.Today.ToShortDateString()})},
+                      {"autor", new BsonArray(new[] {34512, 35512, 2564, 2564})},
+                      {"id_baza_his",BsonValue.Create(1)},
+                      {"wersje", new BsonArray(new[] {document, document, document, document}) },
+                    };
+            things.InsertOne(document46);
+        }
+
+        protected void ButtonDodajDokumntMongo3_Click(object sender, EventArgs e)
+        {
+            // baza docker
+            var connectionString = "mongodb://192.168.1.115:27017";
+            // baza na Centos8
+            connectionString = "mongodb://192.168.1.152:27017";
+
+
+            #region tworzenie XML
+            XNamespace aw = "urn:hl7-org:v3";
+            XNamespace xsi = "http://www.w3.org/2001/XMLSchema-instance";
+            XNamespace extPL = "http://www.csioz.gov.pl/xsd/extPL/r2";
+
+            XEL_recordTarget recordTarget = new XEL_recordTarget();
+            XEL_author author = new XEL_author();
+            XEL_custodian custodian = new XEL_custodian();
+            XEL_legalAuthenticator legalAuthenticator = new XEL_legalAuthenticator();
+            XEL_componentOf componentOf = new XEL_componentOf();
+            XEL_component component = new XEL_component();
+            XEL_ClinicalDocument ClinicalDocument = new XEL_ClinicalDocument(recordTarget.ZrotWartosci(), author.ZrotWartosci(), custodian.ZrotWartosci(), legalAuthenticator.ZrotWartosci(), componentOf.ZrotWartosci(), component.ZrotWartosci());
+
+            XDocument xmlDocument = new XDocument(
+                new XDeclaration("1.0", "utf-8", "no"),
+                new XProcessingInstruction("xml-stylesheet", "href=\"CDA_PL_IG_1.3.1.xsl\" type=\"text/xsl\""), ClinicalDocument.ZrotWartosci()
+            );
+
+            #endregion
+
+
+            MongoClient dbClient = new MongoClient(connectionString);
+
+            IMongoDatabase db = dbClient.GetDatabase("dokmed3");
+
+            string nazwaBazy = "HisCLOB";
+            string queryStringSQL = "select TOP(100) * from " + nazwaBazy + " where CzyImport = 0";
+            string connectionStringSQL = ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString;
+
+            DataSet dataset = new DataSet();
+            dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
+
+            int iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
+            int id_his = 0;
+            int wersja = 0;
+
+            for (int i = 0; i < 100; i++)
+            {
+                if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
+                {
+                    id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
+                    wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
+
+                }
+            }
+
+
+            XElement xml = new XElement(ClinicalDocument.ZrotWartosci());
+            //XElement recordTargetXE = new XElement(recordTarget.ZrotWartosci());
+            //XElement authorXE = new XElement(author.ZrotWartosci());
+            //XElement custodianXE = new XElement(custodian.ZrotWartosci());
+            //XElement legalAuthenticatorXE = new XElement(legalAuthenticator.ZrotWartosci());
+            //XElement componentOfXE = new XElement(componentOf.ZrotWartosci());
+            //XElement componentXE = new XElement(component.ZrotWartosci());
+
+
+            //XElement clinicalDocumentXE = new XElement(ClinicalDocument.ZrotWartosci());
+
+
+            //XmlDocument xD = new XmlDocument();
+            //XmlDocument xD1 = new XmlDocument();
+            //XmlDocument xD2 = new XmlDocument();
+            //XmlDocument xD3 = new XmlDocument();
+            //XmlDocument xD4 = new XmlDocument();
+            //XmlDocument xD5 = new XmlDocument();
+            //XmlDocument xD6 = new XmlDocument();
+            //XmlDocument xD7 = new XmlDocument();
+
+            //xD.LoadXml(xml.ToString());
+            //xD1.LoadXml(recordTargetXE.ToString());
+            //xD2.LoadXml(authorXE.ToString());
+            //xD3.LoadXml(custodianXE.ToString());
+            //xD4.LoadXml(legalAuthenticatorXE.ToString());
+            //xD5.LoadXml(componentOfXE.ToString());
+            //xD6.LoadXml(componentXE.ToString());
+            //xD7.LoadXml(xmlDocument.ToString());
+
+            ////XmlNode xN = xD.FirstChild;
+            //XmlNode xN1 = xD1.FirstChild;
+            //XmlNode xN2 = xD2.FirstChild;
+            //XmlNode xN3 = xD3.FirstChild;
+            //XmlNode xN4 = xD4.FirstChild;
+            //XmlNode xN5 = xD5.FirstChild;
+            //XmlNode xN6 = xD6.FirstChild;
+            //XmlNode xN7 = xD7.FirstChild;
+
+            //XmlNode xN = xD.FirstChild;
+
+
+            //string json = JsonConvert.SerializeXmlNode(xN);
+            //string json1 = JsonConvert.SerializeXmlNode(xN1);
+            //string json2 = JsonConvert.SerializeXmlNode(xN2);
+            //string json3 = JsonConvert.SerializeXmlNode(xN3);
+            //string json4 = JsonConvert.SerializeXmlNode(xN4);
+            //string json5 = JsonConvert.SerializeXmlNode(xN5);
+            //string json6 = JsonConvert.SerializeXmlNode(xN6);
+            //string json7 = JsonConvert.SerializeXmlNode(xN7);
+
+            //BsonDocument document = BsonDocument.Parse(json);
+
+            ////BsonDocument document = BsonDocument.Parse(JsonConvert.SerializeXmlNode(xN));
+
+            //BsonDocument document1 = BsonDocument.Parse(json1);
+            //BsonDocument document2 = BsonDocument.Parse(json2);
+            //BsonDocument document3 = BsonDocument.Parse(json3);
+            //BsonDocument document4 = BsonDocument.Parse(json4);
+            //BsonDocument document5 = BsonDocument.Parse(json5);
+            //BsonDocument document6 = BsonDocument.Parse(json6);
+            //BsonDocument document7 = BsonDocument.Parse(json7);
+
+            BsonDocument document = XelementToBsonDocument(xml);
+
+            BsonValue klucz = BsonValue.Create(23);
+
+            var document44 = new BsonDocument
+                {
+                  //{"_id", klucz},
+                  {"id_nad", BsonValue.Create(0)},
+                  {"versia", BsonValue.Create(1)},
+                  {"versia_aktualna", BsonValue.Create(1)},
+                  {"data_dodania",  DateTime.Today.ToShortDateString()},
+                  {"autor", BsonValue.Create(34512)},
+                  {"id_baza_his",BsonValue.Create(1)},
+                  {document}
+                };
+
+
+            BsonObjectId objektID;
+
+
+            var things = db.GetCollection<BsonDocument>("dokumenty");
+            things.InsertOne(document44);
+            var filter = Builders<BsonDocument>.Filter.Eq("autor", 34512);
+            var doc = things.Find(filter).FirstOrDefault();
+
+            foreach (BsonElement docc in doc)
+            {
+                if (docc.Name == "_id")
+                {
+                    Label1.Text += " gotowe";
+                    Label1.Text += docc.Value;
+                    objektID = BsonObjectId.Create(docc.Value);
+
+                    var document45 = new BsonDocument
+                    {
+
+                      //{"_id", BsonValue.Create(1)},
+                      {"id_nad",objektID},
+                      {"versia", BsonValue.Create(1)},
+                      {"versia_aktualna", BsonValue.Create(1)},
+                      {"data_dodania",  DateTime.Today.ToShortDateString()},
+                      {"autor", BsonValue.Create(34512)},
+                      {"id_baza_his",BsonValue.Create(1)},
+                      {document}
+
+                    };
+                    things.InsertOne(document45);
+
+                    break;
+                }
+                //Label1.Text += docc.Value;
+                //Label1.Text += " \n Wartośc" + docc.ToString();
+            }
+        }
+
+        protected void ButtonDodajDokumntMongo4_Click(object sender, EventArgs e)
+        {
+            // baza docker
+            var connectionString = "mongodb://192.168.1.115:27017";
+            // baza na Centos8
+            connectionString = "mongodb://192.168.1.152:27017";
+
+
+            #region tworzenie XML
+            XNamespace aw = "urn:hl7-org:v3";
+            XNamespace xsi = "http://www.w3.org/2001/XMLSchema-instance";
+            XNamespace extPL = "http://www.csioz.gov.pl/xsd/extPL/r2";
+
+            XEL_recordTarget recordTarget = new XEL_recordTarget();
+            XEL_author author = new XEL_author();
+            XEL_custodian custodian = new XEL_custodian();
+            XEL_legalAuthenticator legalAuthenticator = new XEL_legalAuthenticator();
+            XEL_componentOf componentOf = new XEL_componentOf();
+            XEL_component component = new XEL_component();
+            XEL_ClinicalDocument ClinicalDocument = new XEL_ClinicalDocument(recordTarget.ZrotWartosci(), author.ZrotWartosci(), custodian.ZrotWartosci(), legalAuthenticator.ZrotWartosci(), componentOf.ZrotWartosci(), component.ZrotWartosci());
+
+            XDocument xmlDocument = new XDocument(
+                new XDeclaration("1.0", "utf-8", "no"),
+                new XProcessingInstruction("xml-stylesheet", "href=\"CDA_PL_IG_1.3.1.xsl\" type=\"text/xsl\""), ClinicalDocument.ZrotWartosci()
+            );
+
+            #endregion
+
+            MongoClient dbClient = new MongoClient(connectionString);
+
+            IMongoDatabase db = dbClient.GetDatabase("dokmed");
+
+            string nazwaBazy = "HisCLOB";
+            string queryStringSQL = "select TOP(100) * from " + nazwaBazy + " where CzyImport = 0";
+            string connectionStringSQL = ConfigurationManager.ConnectionStrings["SLOWNIKConnectionString"].ConnectionString;
+
+            DataSet dataset = new DataSet();
+
+
+            dataset = ZapytanieMsSql(connectionStringSQL, queryStringSQL, nazwaBazy);
+            int iloscRekordow = dataset.Tables[nazwaBazy].Rows.Count;
+
+            int id_his = 0;
+            int wersja = 0;
+
+            for (int i = 0; i < 100; i++)
+            {
+                if (i < iloscRekordow) // warownik jaezeli i jest wieksze niz ilosc rekordow
+                {
+                    id_his = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(0));
+                    wersja = Convert.ToInt32(dataset.Tables[nazwaBazy].Rows[i].ItemArray.GetValue(1));
+
+                }
+            }
+
+
+            XElement xml = new XElement(ClinicalDocument.ZrotWartosci());
+            XElement recordTargetXE = new XElement(recordTarget.ZrotWartosci());
+            XElement authorXE = new XElement(author.ZrotWartosci());
+            XElement custodianXE = new XElement(custodian.ZrotWartosci());
+            XElement legalAuthenticatorXE = new XElement(legalAuthenticator.ZrotWartosci());
+            XElement componentOfXE = new XElement(componentOf.ZrotWartosci());
+            XElement componentXE = new XElement(component.ZrotWartosci());
+
+
+            XElement clinicalDocumentXE = new XElement(ClinicalDocument.ZrotWartosci());
+
+
+            XmlDocument xD = new XmlDocument();
+            XmlDocument xD1 = new XmlDocument();
+            XmlDocument xD2 = new XmlDocument();
+            XmlDocument xD3 = new XmlDocument();
+            XmlDocument xD4 = new XmlDocument();
+            XmlDocument xD5 = new XmlDocument();
+            XmlDocument xD6 = new XmlDocument();
+            XmlDocument xD7 = new XmlDocument();
+
+            xD.LoadXml(xml.ToString());
+            xD1.LoadXml(recordTargetXE.ToString());
+            xD2.LoadXml(authorXE.ToString());
+            xD3.LoadXml(custodianXE.ToString());
+            xD4.LoadXml(legalAuthenticatorXE.ToString());
+            xD5.LoadXml(componentOfXE.ToString());
+            xD6.LoadXml(componentXE.ToString());
+            xD7.LoadXml(xmlDocument.ToString());
+
+            //xD3.LoadXml(clinicalDocumentXE.ToString());
+
+            XmlNode xN = xD.FirstChild;
+            XmlNode xN1 = xD1.FirstChild;
+            XmlNode xN2 = xD2.FirstChild;
+            XmlNode xN3 = xD3.FirstChild;
+            XmlNode xN4 = xD4.FirstChild;
+            XmlNode xN5 = xD5.FirstChild;
+            XmlNode xN6 = xD6.FirstChild;
+            XmlNode xN7 = xD7.FirstChild;
+
+
+            string json = JsonConvert.SerializeXmlNode(xN);
+            string json1 = JsonConvert.SerializeXmlNode(xN1);
+            string json2 = JsonConvert.SerializeXmlNode(xN2);
+            string json3 = JsonConvert.SerializeXmlNode(xN3);
+            string json4 = JsonConvert.SerializeXmlNode(xN4);
+            string json5 = JsonConvert.SerializeXmlNode(xN5);
+            string json6 = JsonConvert.SerializeXmlNode(xN6);
+            string json7 = JsonConvert.SerializeXmlNode(xN7);
+
+
+            //Label1.Text = json.ToString();
+            //File.WriteAllText(@"C:/Pliki/json.txt",json);
+
+            BsonDocument document = BsonDocument.Parse(json);
+            BsonDocument document1 = BsonDocument.Parse(json1);
+            BsonDocument document2 = BsonDocument.Parse(json2);
+            BsonDocument document3 = BsonDocument.Parse(json3);
+            BsonDocument document4 = BsonDocument.Parse(json4);
+            BsonDocument document5 = BsonDocument.Parse(json5);
+            BsonDocument document6 = BsonDocument.Parse(json6);
+            BsonDocument document7 = BsonDocument.Parse(json7);
+
+            var things = db.GetCollection<BsonDocument>("dokumenty4");
+
+            //var document45 = new BsonDocument
+            //        {
+            //          {"versia_aktualna", BsonValue.Create(1)},
+            //          {"data_dodania",  DateTime.Today.ToShortDateString()},
+            //          {"autor", BsonValue.Create(34512)},
+            //          {"id_baza_his",BsonValue.Create(1)},
+            //          {"wersje", new BsonArray(new[] {document, document, document, document}) },
+            //        };
+            //things.InsertOne(document45);
+
+            var document46 = new BsonDocument
+            {
+                {"versia_aktualna", BsonValue.Create(5)},
+                {"id_baza_his",BsonValue.Create(1)},
+                {"data_dodania", new BsonArray(new[] {DateTime.Today.ToShortDateString(),DateTime.Today.ToShortDateString(),DateTime.Today.ToShortDateString(),DateTime.Today.ToShortDateString()})},
+                {"recordTargetXE", new BsonArray{
+                    new BsonDocument { { "wersja", 1 }, { document2 } }, } },
+                {"authorXE", new BsonArray{
+                    new BsonDocument { { "wersja", 1 }, { document2 } }, } },
+                {"custodianXE",new BsonArray{
+                     new BsonDocument { { "wersja", 1 }, { document2 } }, } },
+                {"legalAuthenticatorXE", new BsonArray{
+                    new BsonDocument { { "wersja", 1 }, { document2 } },
+                    new BsonDocument { { "wersja", 2 }, { document2 } } } },
+                {"componentOfXE", new BsonArray{
+                    new BsonDocument { { "wersja", 1 }, { document2 } },
+                    new BsonDocument { { "wersja", 3 }, { document2 } } } },
+                {"componentXE", new BsonArray {
+                    new BsonDocument { { "wersja", 1 }, { document2 } },
+                    new BsonDocument { { "wersja", 2 }, { document2 } },
+                    new BsonDocument { { "wersja", 5 }, { document2 } }} }
+            };
+            things.InsertOne(document46);
+        }
 
         //-------------------------- Funkcje ------------------------------------------------------------
         public void ZapytanieOracle(string connectionString, string queryString)
@@ -724,5 +1379,14 @@ namespace WersjonowanieDanych
             return dataset;
         }
 
+        public BsonDocument XelementToBsonDocument(XElement xelement)
+        {
+            XmlDocument xD = new XmlDocument();
+            xD.LoadXml(xelement.ToString());
+            XmlNode xN = xD.FirstChild;
+            BsonDocument bsondocument = BsonDocument.Parse(JsonConvert.SerializeXmlNode(xN));
+
+            return bsondocument;
+        }
     }
 }

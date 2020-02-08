@@ -20,7 +20,7 @@ namespace WersjonowanieDanych
             #region ClinicalDocument 
                         new XAttribute(XNamespace.Xmlns + "xsi", xsi.NamespaceName),
                         new XAttribute(XNamespace.Xmlns + "extPL", extPL.NamespaceName),
-                        new XComment("Karta informacyjna leczenia szpitalnego"),
+                        //new XComment("Karta informacyjna leczenia szpitalnego"),
                         new XElement(aw + "typeId",
                             new XAttribute("extension", "POCD_HD000040"),
                             new XAttribute("root", "2.16.840.1.113883.1.3")),
@@ -65,7 +65,7 @@ namespace WersjonowanieDanych
                     #region ClinicalDocument 
                         new XAttribute(XNamespace.Xmlns + "xsi", xsi.NamespaceName),
                         new XAttribute(XNamespace.Xmlns + "extPL", extPL.NamespaceName),
-                        new XComment("Karta informacyjna leczenia szpitalnego"),
+                        //new XComment("Karta informacyjna leczenia szpitalnego"),
                         new XElement(aw + "typeId",
                             new XAttribute("extension", "POCD_HD000040"),
                             new XAttribute("root", "2.16.840.1.113883.1.3")),

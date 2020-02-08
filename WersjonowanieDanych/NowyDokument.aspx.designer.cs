@@ -166,6 +166,33 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongoLosowy;
         
         /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongo2.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongo2;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongo3.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongo3;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongo4.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongo4;
+        
+        /// <summary>
         /// Kontrolka Label1.
         /// </summary>
         /// <remarks>
