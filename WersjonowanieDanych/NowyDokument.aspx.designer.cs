@@ -175,6 +175,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongo2;
         
         /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongoCalyRef.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongoCalyRef;
+        
+        /// <summary>
         /// Kontrolka ButtonDodajDokumntMongo3.
         /// </summary>
         /// <remarks>
@@ -184,6 +193,15 @@ namespace WersjonowanieDanych {
         protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongo3;
         
         /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongoCalyZag.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongoCalyZag;
+        
+        /// <summary>
         /// Kontrolka ButtonDodajDokumntMongo4.
         /// </summary>
         /// <remarks>
@@ -191,6 +209,24 @@ namespace WersjonowanieDanych {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongo4;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongoFragRef.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongoFragRef;
+        
+        /// <summary>
+        /// Kontrolka ButtonDodajDokumntMongoFragZag.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDodajDokumntMongoFragZag;
         
         /// <summary>
         /// Kontrolka Label1.

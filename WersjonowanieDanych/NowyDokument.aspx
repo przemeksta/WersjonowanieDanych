@@ -191,7 +191,8 @@
                     <td class="auto-style5">
                         &nbsp;</td>
                     <td class="auto-style5">
-                        &nbsp;</td>
+                        <asp:Button ID="ButtonDodajDokumntMongoCalyRef" runat="server" Text="MongoDB Dok Referencje" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntMongoCalyRef_Click" />
+                    </td>
                     <td class="auto-style6">
                         &nbsp;</td>
                     <td class="auto-style7">&nbsp;</td>
@@ -206,7 +207,8 @@
                     <td class="auto-style5">
                         &nbsp;</td>
                     <td class="auto-style5">
-                        &nbsp;</td>
+                        <asp:Button ID="ButtonDodajDokumntMongoCalyZag" runat="server" Text="MongoDB Dok Zagniezdzenie" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntMongoCalyZag_Click" />
+                    </td>
                     <td class="auto-style6">
                         &nbsp;</td>
                     <td class="auto-style7">&nbsp;</td>
@@ -222,6 +224,34 @@
                         &nbsp;</td>
                     <td class="auto-style5">
                         &nbsp;</td>
+                    <td class="auto-style6">
+                        &nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:Button ID="ButtonDodajDokumntMongoFragRef" runat="server" Text="MongoDB Frag Referencje" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntMongoFragRef_Click" />
+                    </td>
+                    <td class="auto-style6">
+                        &nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:Button ID="ButtonDodajDokumntMongoFragZag" runat="server" Text="MongoDB Ref Zagniezdzenie" Width="220px" Font-Bold="True" OnClick="ButtonDodajDokumntMongoFragZag_Click" />
+                    </td>
                     <td class="auto-style6">
                         &nbsp;</td>
                     <td class="auto-style7">&nbsp;</td>
